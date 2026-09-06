@@ -1,0 +1,196 @@
+id	domaine	fonction	comportement_reference	statut_preuve	date_preuve	sources	portee_reference	responsable_kuro	disposition	milestone	validation_future
+F01-001	D01	Paquets et rôles	Serveur et contrôle séparables	documente	2026-09-06	SRC-001;SRC-133	serveur_desktop	exploitation	socle	M1	Démarrer bibliothèque, contrôle et sortie sur la même machine
+F01-002	D01	Serveur en arrière-plan	Service Linux sans interface	documente	2026-09-06	SRC-134	serveur_desktop	exploitation	socle	M1	Fermer le contrôle puis vérifier que le serveur reste joignable
+F01-003	D01	Connexion au serveur	Contrôle local ou réseau	documente	2026-09-06	SRC-001	serveur_desktop	exploitation	socle	M1	Ouvrir le desktop sur le serveur local sélectionné
+F01-004	D01	Autres desktops	Contrôle Windows et macOS	documente	2026-09-06	SRC-001;SRC-133	serveur_desktop	exploitation	retenu_provisoire	M6	Réaliser le même parcours sur chaque desktop retenu
+F01-005	D01	Déploiement serveur NAS	Docker amd64 documenté	documente	2026-09-06	SRC-133;SRC-134;SRC-135	serveur_desktop	exploitation	conditionnel	M6	Confirmer le support natif ou conteneur avant choix
+F01-006	D01	Version des composants	Versions serveur et contrôle visibles	documente	2026-09-06	SRC-017	serveur_desktop	exploitation	socle	M1	Identifier séparément les versions installées
+F01-007	D01	Mises à jour	Politique automatique ou demandée	documente	2026-09-06	SRC-016	serveur_desktop	exploitation	retenu_provisoire	M6	Mettre à jour puis lire la version et vérifier les données
+F01-008	D01	Relocalisation du serveur	Restauration vers une autre machine	documente	2026-09-06	SRC-130;SRC-014	serveur_desktop	exploitation	retenu_provisoire	M6	Restaurer ailleurs puis retrouver les mêmes playlists
+F02-001	D02	Source locale	Dossier surveillé	documente	2026-09-06	SRC-102	serveur_desktop	serveur_bibliotheque	socle	M1	Importer un dossier puis retrouver ses albums
+F02-002	D02	Source NAS	Partage SMB avec identifiants	documente	2026-09-06	SRC-102	serveur_desktop	serveur_bibliotheque	socle	M1	Lire depuis un NAS joignable sans copier toute la collection
+F02-003	D02	Copie par glisser-déposer	Copie vers stockage choisi	documente	2026-09-06	SRC-102	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Comparer destination choisie et fichiers copiés
+F02-004	D02	Surveillance des changements	Ajouts, retraits et modifications repérés	documente	2026-09-06	SRC-001	serveur_desktop	serveur_bibliotheque	socle	M1	Modifier un corpus de test puis comparer son index
+F02-005	D02	Rescan manuel	Relance du scan de stockage	documente	2026-09-06	SRC-102;SRC-104	serveur_desktop	serveur_bibliotheque	socle	M1	Ajouter un fichier puis le trouver après rescan
+F02-006	D02	Désactivation de source	Surveillance suspendue puis réactivable	documente	2026-09-06	SRC-102	serveur_desktop	serveur_bibliotheque	socle	M1	Désactiver puis réactiver une source sans perdre les playlists
+F02-007	D02	Modification du chemin	Emplacement de collection relocalisable	documente	2026-09-06	SRC-131	serveur_desktop	serveur_bibliotheque	socle	M1	Déplacer un corpus de test et vérifier ses références
+F02-008	D02	Exclusions d’import	Motifs de fichiers ignorés	documente	2026-09-06	SRC-102;SRC-103	serveur_desktop	serveur_bibliotheque	socle	M1	Exclure un dossier et constater son absence de l’index
+F02-009	D02	Formats importables	PCM compressé ou non; DSF/DFF	documente	2026-09-06	SRC-103	serveur_desktop	serveur_bibliotheque	socle	M1	Définir puis tester le sous-ensemble M1; DSD envisagé M3; signaler les formats refusés
+F02-010	D02	Fichiers ignorés	Liste de fichiers non importés	documente	2026-09-06	SRC-103	serveur_desktop	serveur_bibliotheque	socle	M1	Importer un fichier invalide et retrouver son motif de rejet
+F02-011	D02	Lecture des tags	Tags extraits à l’import	documente	2026-09-06	SRC-001;SRC-006	serveur_desktop	serveur_bibliotheque	socle	M1	Comparer album, artiste et piste aux tags du corpus
+F02-012	D02	Tags multivalués	Séparateurs configurables	documente	2026-09-06	SRC-006	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Importer artistes multiples sans scinder les noms à tort
+F02-013	D02	Dates d’ajout	Source de date configurable	documente	2026-09-06	SRC-006	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Comparer date choisie et date affichée après réimport
+F02-014	D02	Playlists de fichiers	M3U, M3U8, PLS, XSPF	documente	2026-09-06	SRC-015	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Importer des chemins relatifs et identifier les pistes manquantes
+F02-015	D02	Import iTunes	XML surveillé et playlists importées	documente	2026-09-06	SRC-015	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Importer un XML de test puis comparer son ordre
+F02-016	D02	Nettoyage explicite	Oubli des fichiers indisponibles	documente	2026-09-06	SRC-104	serveur_desktop	serveur_bibliotheque	proposition	M2	Afficher les références affectées avant nettoyage
+F02-017	D02	Analyse programmée	Planification et ressources réglables	documente	2026-09-06	SRC-105	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M3	Vérifier créneau d’analyse et progression visible
+F02-018	D02	Analyse à la demande	Relance sur contenu choisi	documente	2026-09-06	SRC-105	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M3	Relancer une analyse et retrouver son résultat
+F03-001	D03	Identités des copies	Copies locales identifiées séparément	documente	2026-09-06	SRC-002	serveur_desktop	serveur_bibliotheque	socle	M1	Conserver deux copies distinctes et une référence précise en playlist
+F03-002	D03	Identification enrichie	Correspondance vers catalogue Roon	documente	2026-09-06	SRC-001;SRC-003	serveur_desktop	serveur_bibliotheque	conditionnel	M5	Afficher résultat et provenance sans écraser les tags locaux
+F03-003	D03	Identification manuelle	Édition choisie par utilisateur	documente	2026-09-06	SRC-004	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Choisir une correspondance et retrouver ce choix après redémarrage
+F03-004	D03	Versions alternatives	Regroupement automatique et manuel	documente	2026-09-06	SRC-212	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Grouper puis séparer deux éditions sans fusionner les fichiers
+F03-005	D03	Version principale	Version préférée sélectionnable	documente	2026-09-06	SRC-212	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Changer l’édition principale puis vérifier la vue album
+F03-006	D03	Préférences de métadonnées	Priorité fichier ou service	documente	2026-09-06	SRC-006	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Résoudre un conflit de titre selon la priorité choisie
+F03-007	D03	Corrections par champ	Édition stockée dans la base	documente	2026-09-06	SRC-004	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Corriger un titre puis comparer les fichiers sources
+F03-008	D03	Édition par lot	Modification de plusieurs objets	documente	2026-09-06	SRC-004	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Appliquer un changement aux seuls objets sélectionnés
+F03-009	D03	Préservation des corrections	Champ modifié protégé des mises à jour	documente	2026-09-06	SRC-004	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Actualiser les métadonnées et conserver le titre corrigé
+F03-010	D03	Fusion d’albums	Regroupement de disques	documente	2026-09-06	SRC-004	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Réunir deux disques et vérifier l’ordre obtenu
+F03-011	D03	Correction de structure	Scission et réordre pistes/disques	documente	2026-09-06	SRC-004	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Scinder un coffret sans perdre ses références de pistes
+F03-012	D03	Masquage	Albums cachés puis réaffichables	documente	2026-09-06	SRC-004	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Masquer puis retrouver un album via filtre explicite
+F03-013	D03	Indicateurs de publication	Live, compilation, bootleg éditables	documente	2026-09-06	SRC-004	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Modifier un indicateur et vérifier son affichage
+F03-014	D03	Édition des illustrations	Pochette modifiable dans la base	documente	2026-09-06	SRC-002	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Changer une pochette et vérifier sa provenance
+F03-015	D03	Réimport des informations	Tags et illustrations rescannables	documente	2026-09-06	SRC-004	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Changer une image externe puis constater le rescan
+F03-016	D03	Crédits structurés	Personne, rôle et catégorie	documente	2026-09-06	SRC-002	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Retrouver un musicien depuis le crédit d’une piste
+F03-017	D03	Édition des crédits	Documentation d’époques divergentes	contradictoire	2026-09-06	SRC-002;SRC-004	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Observer l’éditeur actuel avant de fixer les champs
+F03-018	D03	Œuvre et interprétation	Œuvre liée à plusieurs pistes	documente	2026-09-06	SRC-002;SRC-213	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Relier une œuvre à deux interprétations distinctes
+F03-019	D03	Mouvements	Parties distinctes des pistes	documente	2026-09-06	SRC-002;SRC-213	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Afficher une œuvre dont les mouvements ne suivent pas un découpage un pour un
+F03-020	D03	Compositeurs	Compositeur distinct de l’interprète	documente	2026-09-06	SRC-002;SRC-214	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Chercher une œuvre par compositeur et par chef
+F03-021	D03	Genres hiérarchiques	Navigation par sous-genres	documente	2026-09-06	SRC-005	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Parcourir genre puis sous-genre et retrouver les albums attendus
+F03-022	D03	Personnalisation des genres	Affectations, mappings et hiérarchie	documente	2026-09-06	SRC-005	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Fusionner deux libellés sans modifier les tags sources
+F03-023	D03	Descripteurs classiques	Période, forme et catalogue	documente	2026-09-06	SRC-002;SRC-214	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Filtrer les œuvres selon un descripteur connu
+F03-024	D03	Galerie et livrets	Images et PDF associés à l’album	documente	2026-09-06	SRC-018	serveur_desktop	desktop	retenu_provisoire	M2	Ouvrir l’image puis le livret du bon album
+F04-001	D04	Vue albums	Albums réunis dans un navigateur	documente	2026-09-06	SRC-202	serveur_desktop	desktop	socle	M1	Retrouver les albums locaux et NAS dans une vue
+F04-002	D04	Vue artistes	Navigation des artistes	documente	2026-09-06	SRC-201	serveur_desktop	desktop	socle	M1	Ouvrir un artiste et retrouver ses albums
+F04-003	D04	Vue pistes	Liste de pistes	documente	2026-09-06	SRC-203	serveur_desktop	desktop	socle	M1	Retrouver une piste et lancer sa lecture
+F04-004	D04	Recherche globale	Recherche au-delà de la vue	documente	2026-09-06	SRC-203	serveur_desktop	desktop	socle	M1	Trouver album, artiste et piste par des requêtes connues
+F04-005	D04	Filtre de vue	Restriction textuelle locale	documente	2026-09-06	SRC-202;SRC-203	serveur_desktop	desktop	socle	M1	Filtrer une liste et vérifier les éléments restants
+F04-006	D04	Tri	Colonnes triables	documente	2026-09-06	SRC-203	serveur_desktop	desktop	socle	M1	Trier titres et vérifier l’ordre sur accents et nombres
+F04-007	D04	Colonnes personnalisées	Colonnes de liste configurables	documente	2026-09-06	SRC-203	serveur_desktop	desktop	retenu_provisoire	M2	Masquer une colonne puis conserver le réglage
+F04-008	D04	Focus	Combinaison de critères	documente	2026-09-06	SRC-204	serveur_desktop	desktop	retenu_provisoire	M2	Combiner genre, format et date sur un corpus connu
+F04-009	D04	Focus négatif	Exclusion d’un critère	documente	2026-09-06	SRC-204	serveur_desktop	desktop	retenu_provisoire	M2	Exclure un format et comparer les résultats
+F04-010	D04	Navigation historique	Retour et avance entre vues	documente	2026-09-06	SRC-011	serveur_desktop	desktop	socle	M1	Revenir à une recherche puis avancer à l’album
+F04-011	D04	Vues classiques	Œuvres et compositeurs consultables	documente	2026-09-06	SRC-213;SRC-214	serveur_desktop	desktop	retenu_provisoire	M2	Ouvrir les interprétations d’une œuvre depuis son compositeur
+F04-012	D04	Versions et emplacements	Comparaison des éditions	documente	2026-09-06	SRC-212	serveur_desktop	desktop	retenu_provisoire	M2	Identifier format et emplacement de deux versions
+F04-013	D04	Sélection multiple	Commandes appliquées à la sélection	documente	2026-09-06	SRC-004;SRC-007	serveur_desktop	desktop	socle	M1	Sélectionner trois pistes et vérifier les seules pistes ajoutées
+F04-014	D04	Navigation par dossiers	Sous-dossiers et lecture récursive	documente	2026-09-06	SRC-019	serveur_desktop	desktop	retenu_provisoire	M2	Lire un sous-dossier et comparer les pistes incluses
+F04-015	D04	Pochettes locales	Images issues des fichiers	documente	2026-09-06	SRC-002;SRC-018	serveur_desktop	desktop	proposition	M1	Afficher les images locales et une absence de pochette sans Internet
+F05-001	D05	Création de playlist	Albums ou pistes ajoutables	documente	2026-09-06	SRC-206	serveur_desktop	serveur_bibliotheque	socle	M1	Créer une playlist et comparer les identités et l’ordre
+F05-002	D05	Édition de playlist	Retrait et réordre des pistes	documente	2026-09-06	SRC-206	serveur_desktop	serveur_bibliotheque	socle	M1	Déplacer puis retirer une piste sans supprimer son fichier
+F05-003	D05	Gestion de playlist	Renommage et suppression	documente	2026-09-06	SRC-206	serveur_desktop	serveur_bibliotheque	socle	M1	Renommer puis supprimer une playlist locale
+F05-004	D05	Doublons en playlist	Avertissement et ajout sélectif	documente	2026-09-06	SRC-206	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Ajouter deux fois la même sélection et choisir les nouveaux titres
+F05-005	D05	Dossiers de playlists	Classement et déplacement	documente	2026-09-06	SRC-206	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Déplacer une playlist entre deux dossiers
+F05-006	D05	Copie de playlist	Copie locale distincte	documente	2026-09-06	SRC-015;SRC-206	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Modifier une copie sans changer la source
+F05-007	D05	Favoris personnels	Favoris par profil	documente	2026-09-06	SRC-010	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Marquer un album et retrouver le favori du profil
+F05-008	D05	Profils	Création et changement	documente	2026-09-06	SRC-010	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Changer de profil et conserver la bibliothèque commune
+F05-009	D05	Historique personnel	Écoutes par profil	documente	2026-09-06	SRC-010	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Lire une piste et retrouver son écoute au bon profil
+F05-010	D05	Tags d’objets	Albums, personnes, œuvres et tags	documente	2026-09-06	SRC-009	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Taguer des objets de types différents et les retrouver
+F05-011	D05	Tags par lot	Ajout à plusieurs objets	documente	2026-09-06	SRC-009	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Taguer une sélection puis comparer ses membres
+F05-012	D05	Portée des tags	Partagés ou propres au profil	documente	2026-09-06	SRC-009	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Changer de profil et constater la visibilité attendue
+F05-013	D05	Import des tags Roon	ROONALBUMTAG et ROONTRACKTAG	documente	2026-09-06	SRC-009	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Importer ces champs sans modifier les fichiers
+F05-014	D05	Bookmarks	Vue et Focus sauvegardés	documente	2026-09-06	SRC-204	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Rouvrir un bookmark et vérifier ses critères
+F05-015	D05	Gestion des bookmarks	Renommage, ordre et suppression	documente	2026-09-06	SRC-204	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Réordonner les bookmarks puis rouvrir le bon
+F05-016	D05	Smart Playlists	Résultats dynamiques de Focus	documente	2026-09-06	SRC-205	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Ajouter un album éligible et constater l’actualisation
+F05-017	D05	Règles Smart Playlists	Correspondance any/all et exclusions	documente	2026-09-06	SRC-205	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Comparer critères conjoints et alternatifs sur un même corpus
+F05-018	D05	Bans	Exclusion des automatismes	documente	2026-09-06	SRC-209	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Bannir puis vérifier les automatismes et la lecture directe séparément
+F05-019	D05	Recherche des bans	Retrouvables via Focus	documente	2026-09-06	SRC-209	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Retrouver puis débannir un objet exclu
+F05-020	D05	Dossiers favoris	Raccourcis vers sous-dossiers	documente	2026-09-06	SRC-019	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Marquer un dossier et le retrouver en tête
+F05-021	D05	Export des médias	Copie avec métadonnées Roon	documente	2026-09-06	SRC-007	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Comparer tags de la copie et empreintes des sources
+F05-022	D05	Export M3U	Playlist avec références de fichiers	documente	2026-09-06	SRC-007	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Rouvrir l’export dans un lecteur indépendant
+F05-023	D05	Export de catalogue	Tableur ou CSV Soundiiz	documente	2026-09-06	SRC-007	serveur_desktop	serveur_bibliotheque	retenu_provisoire	M2	Comparer identités, ordre et champs exportés
+F06-001	D06	Transport	Lecture, pause, arrêt, précédent, suivant	documente	2026-09-06	SRC-011	serveur_desktop	serveur_lecture	socle	M1	Exécuter chaque commande et comparer piste et position
+F06-002	D06	Lecture d’une sélection	Départ depuis piste ou sélection	documente	2026-09-06	SRC-206;SRC-218	serveur_desktop	serveur_lecture	socle	M1	Lancer au milieu d’une playlist et vérifier la suite
+F06-003	D06	File visible	Piste courante et morceaux suivants	documente	2026-09-06	SRC-218	serveur_desktop	serveur_lecture	socle	M1	Comparer la file affichée à la séquence entendue
+F06-004	D06	Réordre de file	Déplacement d’un élément	documente	2026-09-06	SRC-218	serveur_desktop	serveur_lecture	socle	M1	Déplacer une piste et vérifier le prochain morceau
+F06-005	D06	Retrait de file	Suppression d’un élément	documente	2026-09-06	SRC-218	serveur_desktop	serveur_lecture	socle	M1	Retirer une piste future sans interrompre la courante
+F06-006	D06	Vidage de file	Prochains ou ensemble	documente	2026-09-06	SRC-218	serveur_desktop	serveur_lecture	socle	M1	Vider les prochains puis vérifier l’état courant
+F06-007	D06	Lecture aléatoire	Shuffle de la file	documente	2026-09-06	SRC-218	serveur_desktop	serveur_lecture	socle	M1	Vérifier appartenance des pistes jouées et fin de cycle
+F06-008	D06	Répétition	Boucle de la file	documente	2026-09-06	SRC-218	serveur_desktop	serveur_lecture	socle	M1	Atteindre la fin et constater le retour attendu
+F06-009	D06	Historique de session	Passé conservé dans la file	documente	2026-09-06	SRC-218	serveur_desktop	serveur_lecture	socle	M1	Revenir à une piste déjà jouée pendant la session
+F06-010	D06	File vers playlist	Enregistrement de tout ou partie	documente	2026-09-06	SRC-218	serveur_desktop	serveur_lecture	socle	M1	Sauver les prochains morceaux et comparer la playlist
+F06-011	D06	File vers tag ou export	Réutilisation de la sélection	documente	2026-09-06	SRC-218	serveur_desktop	serveur_lecture	retenu_provisoire	M2	Exporter une portion choisie sans les autres pistes
+F06-012	D06	Fondu enchaîné	Crossfade réglable par zone	documente	2026-09-06	SRC-124	serveur_desktop	serveur_lecture	retenu_provisoire	M3	Mesurer le chevauchement sur un corpus de test
+F06-013	D06	Gapless	Enchaînement exact à observer	exigence_kuro	2026-09-06	INT-P1	serveur_desktop	serveur_lecture	socle	M1	Mesurer et écouter les jonctions sur chaque format retenu
+F06-014	D06	Position dans la piste	Recherche temporelle à observer	a_observer	2026-09-06	INT-P1	serveur_desktop	serveur_lecture	proposition	M1	Aller à une position puis comparer horodatage et son
+F07-001	D07	Sortie locale	DAC USB ou carte son	documente	2026-09-06	SRC-001;SRC-106	serveur_sortie	sortie_audio	socle	M1	Lire une piste sur la sortie locale désignée
+F07-002	D07	Activation de sortie	Appareil activé comme zone	documente	2026-09-06	SRC-106	serveur_sortie	sortie_audio	socle	M1	Activer une sortie et vérifier qu’elle devient sélectionnable
+F07-003	D07	Identification de DAC	Détection ou choix manuel	documente	2026-09-06	SRC-106	serveur_sortie	sortie_audio	retenu_provisoire	M3	Comparer le modèle reconnu au matériel réel
+F07-004	D07	Mode exclusif	Contrôle exclusif du périphérique	documente	2026-09-06	SRC-106;SRC-107	serveur_sortie	sortie_audio	retenu_provisoire	M3	Observer les accès concurrents et le format de sortie
+F07-005	D07	Volume matériel	Commandes transmises au pilote	documente	2026-09-06	SRC-106	serveur_sortie	sortie_audio	socle	M1	Changer le volume et comparer l’état matériel
+F07-006	D07	Volume fixe	Contrôle interne désactivé	documente	2026-09-06	SRC-106	serveur_sortie	sortie_audio	retenu_provisoire	M3	Vérifier niveau et absence de réglage dans le contrôle
+F07-007	D07	Volume logiciel	Atténuation numérique DSP	documente	2026-09-06	SRC-106	serveur_sortie	sortie_audio	retenu_provisoire	M3	Mesurer l’atténuation demandée sur un signal de test
+F07-008	D07	Stratégie DSD	Natif, DoP ou PCM selon sortie	documente	2026-09-06	SRC-106;SRC-109	serveur_sortie	sortie_audio	retenu_provisoire	M3	Tester les stratégies avec un DAC et des fichiers identifiés
+F07-009	D07	Limites de sortie	Plafonds PCM et DSD réglables	documente	2026-09-06	SRC-106	serveur_sortie	sortie_audio	retenu_provisoire	M3	Demander un format supérieur et constater l’adaptation
+F07-010	D07	Multicanal	Lecture et adaptation des canaux	documente	2026-09-06	SRC-108	serveur_sortie	sortie_audio	retenu_provisoire	M3	Identifier chaque canal d’un fichier de test
+F07-011	D07	Délai de resynchronisation	Silence avant nouveau flux	documente	2026-09-06	SRC-106	serveur_sortie	sortie_audio	retenu_provisoire	M3	Changer de fréquence et mesurer le début audible
+F07-012	D07	Signal Path	Chaîne audio et traitements affichés	documente	2026-09-06	SRC-110	serveur_sortie	sortie_audio	retenu_provisoire	M3	Comparer chaque étape affichée aux réglages appliqués
+F07-013	D07	Décodage MQA	Documentation historique contradictoire	contradictoire	2026-09-06	SRC-114;SRC-137	serveur_sortie	sortie_audio	conditionnel	M5	Vérifier disponibilité et droits avant toute cible de parité
+F08-001	D08	Analyse de loudness	Niveau calculé par analyse	documente	2026-09-06	SRC-105	serveur_sortie	serveur_lecture	retenu_provisoire	M3	Comparer le résultat d’un corpus aux valeurs de référence
+F08-002	D08	Forme d’onde et dynamique	Résultats de l’analyse audio	documente	2026-09-06	SRC-105	serveur_sortie	serveur_lecture	retenu_provisoire	M3	Comparer affichage et sections silencieuses connues
+F08-003	D08	Corruption audio	Détection à l’analyse	documente	2026-09-06	SRC-105	serveur_sortie	serveur_lecture	retenu_provisoire	M3	Analyser un fichier volontairement endommagé
+F08-004	D08	Normalisation de volume	Modes piste et album	documente	2026-09-06	SRC-111	serveur_sortie	serveur_lecture	retenu_provisoire	M3	Comparer continuité intra-album et niveaux entre albums
+F08-005	D08	Import ReplayGain	Priorité configurable aux tags	documente	2026-09-06	SRC-006	serveur_sortie	serveur_lecture	retenu_provisoire	M3	Comparer gain des tags et gain d’analyse selon le réglage
+F08-006	D08	Chaîne MUSE	Traitements indépendants par zone	documente	2026-09-06	SRC-112	serveur_sortie	serveur_lecture	retenu_provisoire	M3	Comparer deux chaînes enregistrées et leurs sorties
+F08-007	D08	Ordre et bypass	Filtres ordonnables et désactivables	documente	2026-09-06	SRC-112	serveur_sortie	serveur_lecture	retenu_provisoire	M3	Inverser deux filtres puis mesurer l’effet et le bypass
+F08-008	D08	Marge numérique	Headroom et indicateur d’écrêtage	documente	2026-09-06	SRC-113	serveur_sortie	serveur_lecture	retenu_provisoire	M3	Provoquer un dépassement contrôlé puis le corriger
+F08-009	D08	Conversion de fréquence	Choix de fréquence de sortie	documente	2026-09-06	SRC-114	serveur_sortie	serveur_lecture	retenu_provisoire	M3	Mesurer la fréquence après conversion
+F08-010	D08	Conversion PCM vers DSD	Suréchantillonnage DSD	documente	2026-09-06	SRC-114	serveur_sortie	serveur_lecture	retenu_provisoire	M3	Vérifier le flux obtenu sur une sortie compatible
+F08-011	D08	Égaliseur paramétrique	Fréquence, gain, Q et type	documente	2026-09-06	SRC-115	serveur_sortie	serveur_lecture	retenu_provisoire	M3	Comparer la réponse mesurée au filtre choisi
+F08-012	D08	Égaliseur procédural	Filtres et mixage ordonnés par canal	documente	2026-09-06	SRC-116	serveur_sortie	serveur_lecture	retenu_provisoire	M3	Appliquer délai, inversion et mixage à des canaux identifiés
+F08-013	D08	Crossfeed	Mélange entre canaux casque	documente	2026-09-06	SRC-117	serveur_sortie	serveur_lecture	retenu_provisoire	M3	Mesurer le signal transféré au canal opposé
+F08-014	D08	Convolution	Filtres par fréquence et canaux	documente	2026-09-06	SRC-118	serveur_sortie	serveur_lecture	retenu_provisoire	M3	Comparer l’impulsion produite au filtre chargé
+F08-015	D08	Profils Audeze	Corrections et modes de latence	documente	2026-09-06	SRC-119	serveur_sortie	serveur_lecture	retenu_provisoire	M3	Sélectionner un modèle puis comparer les deux modes
+F08-016	D08	Profils OPRA	Casque recherché et PEQ exportable	documente	2026-09-06	SRC-121	serveur_sortie	serveur_lecture	retenu_provisoire	M3	Choisir un casque puis inspecter le PEQ éditable
+F08-017	D08	Réglage des enceintes	Gain et délai par enceinte	documente	2026-09-06	SRC-120	serveur_sortie	serveur_lecture	retenu_provisoire	M3	Mesurer gain et retard de chaque canal
+F08-018	D08	Vitesse de traitement	Indicateur de marge de calcul	documente	2026-09-06	SRC-112	serveur_sortie	serveur_lecture	retenu_provisoire	M3	Comparer l’indicateur au maintien d’une lecture continue
+F09-001	D09	Contrôleurs multiples	État partagé entre contrôles	documente	2026-09-06	SRC-001	serveur_controle_sortie	coordination_reseau	retenu_provisoire	M4	Modifier la file depuis deux contrôles et comparer leur état
+F09-002	D09	Zones indépendantes	File propre à chaque zone	documente	2026-09-06	SRC-001;SRC-124	serveur_controle_sortie	coordination_reseau	retenu_provisoire	M4	Lire deux programmes différents simultanément
+F09-003	D09	Transfert de lecture	Piste et file déplacées de zone	documente	2026-09-06	SRC-124	serveur_controle_sortie	coordination_reseau	retenu_provisoire	M4	Transférer une lecture et comparer position et file
+F09-004	D09	Groupement de zones	Synchronisation entre types compatibles	documente	2026-09-06	SRC-124;SRC-125	serveur_controle_sortie	coordination_reseau	retenu_provisoire	M4	Grouper deux sorties compatibles et mesurer leur décalage
+F09-005	D09	Dissociation de groupe	Retrait individuel ou total	documente	2026-09-06	SRC-124	serveur_controle_sortie	coordination_reseau	retenu_provisoire	M4	Retirer une sortie et vérifier les zones restantes
+F09-006	D09	Zones privées	Visibles seulement localement	documente	2026-09-06	SRC-106;SRC-124	serveur_controle_sortie	coordination_reseau	retenu_provisoire	M4	Vérifier qu’un autre contrôleur ne voit pas la zone privée
+F09-007	D09	Endpoint Bridge	Sorties d’un ordinateur exposées	documente	2026-09-06	SRC-127	serveur_controle_sortie	coordination_reseau	retenu_provisoire	M4	Découvrir un endpoint puis y lire une piste
+F09-008	D09	Roon Ready et RAAT	Transport et certification Roon	documente	2026-09-06	SRC-123	serveur_controle_sortie	coordination_reseau	conditionnel	M4	Établir accès et droits avant essai sur matériel
+F09-009	D09	Autres protocoles audio	AirPlay, Squeezebox, Meridian	documente	2026-09-06	SRC-001;SRC-124	serveur_controle_sortie	coordination_reseau	conditionnel	M4	Tester chaque protocole retenu sur matériel identifié
+F09-010	D09	Sonos et KEF	Zones spécifiques documentées	documente	2026-09-06	SRC-124	serveur_controle_sortie	coordination_reseau	conditionnel	M4	Vérifier support et groupement par modèle
+F09-011	D09	Chromecast	Audio et groupe Google Home	documente	2026-09-06	SRC-126	serveur_controle_sortie	coordination_reseau	conditionnel	M4	Lire sur un groupe configuré par le système externe
+F09-012	D09	Commandes matérielles	Transport, volume et source intégrés	documente	2026-09-06	SRC-123	serveur_controle_sortie	coordination_reseau	retenu_provisoire	M4	Commander depuis l’appareil et observer le contrôle
+F09-013	D09	Displays	Affichage externe web ou Chromecast	documente	2026-09-06	SRC-217	serveur_controle_sortie	coordination_reseau	retenu_provisoire	M4	Afficher le titre courant et suivre le changement de piste
+F09-014	D09	HQPlayer	Flux confié à HQPlayer	documente	2026-09-06	SRC-021	serveur_controle_sortie	integrations	conditionnel	M5	Vérifier transport et sortie avec une instance autorisée
+F09-015	D09	Devialet AIR	Sortie via protocole AIR	documente	2026-09-06	SRC-022	serveur_controle_sortie	coordination_reseau	conditionnel	M4	Tester le modèle retenu et documenter ses limites
+F10-001	D10	Biographies et critiques	Textes éditoriaux liés aux objets	documente	2026-09-06	SRC-002;SRC-003	serveur_desktop	integrations	conditionnel	M5	Afficher auteur ou fournisseur et gérer un texte absent
+F10-002	D10	Relations musicales	Collaborations et similarités	documente	2026-09-06	SRC-003	serveur_desktop	integrations	conditionnel	M5	Naviguer d’un crédit vers une collaboration identifiée
+F10-003	D10	Paroles statiques	Fournisseur ou tags de fichiers	documente	2026-09-06	SRC-215	serveur_desktop	integrations	conditionnel	M5	Afficher les paroles disponibles et leur provenance
+F10-004	D10	Paroles synchronisées	Texte aligné avec lecture	documente	2026-09-06	SRC-215	serveur_desktop	integrations	conditionnel	M5	Comparer horodatage des lignes et position sonore
+F10-005	D10	Discover	Sélection rafraîchissable	documente	2026-09-06	SRC-220	serveur_desktop	integrations	conditionnel	M5	Rafraîchir et constater la sélection renvoyée
+F10-006	D10	Daily Picks	Sélection quotidienne par profil	documente	2026-09-06	SRC-220;SRC-221	serveur_desktop	integrations	conditionnel	M5	Comparer deux profils éligibles puis le renouvellement quotidien
+F10-007	D10	Listen Later	Liste dédiée artistes, albums, pistes	documente	2026-09-06	SRC-222	serveur_desktop	integrations	conditionnel	M5	Ajouter un objet et le retrouver dans la liste dédiée
+F10-008	D10	Suivi Listen Later	Séparation écouté et non écouté	documente	2026-09-06	SRC-222	serveur_desktop	integrations	conditionnel	M5	Lire un objet et vérifier son changement d’état
+F10-009	D10	Roon Radio	Suite algorithmique et amorce musicale	documente	2026-09-06	SRC-223	serveur_desktop	integrations	conditionnel	M5	Terminer la file et observer la suite depuis une amorce connue
+F10-010	D10	Réglages Radio	Votes, limite bibliothèque, explicite	documente	2026-09-06	SRC-223	serveur_desktop	integrations	conditionnel	M5	Changer un réglage puis comparer les pistes proposées
+F11-001	D11	TIDAL	Compte, catalogue, qualité, favoris	documente	2026-09-06	SRC-226	serveur_desktop	integrations	conditionnel	M5	Vérifier accès territorial et lecture avec un compte autorisé
+F11-002	D11	Qobuz	Compte, catalogue et favoris	documente	2026-09-06	SRC-227	serveur_desktop	integrations	conditionnel	M5	Comparer favoris du service et bibliothèque après synchronisation
+F11-003	D11	KKBOX	Catalogue et langue configurables	documente	2026-09-06	SRC-228	serveur_desktop	integrations	conditionnel	M5	Vérifier territoire, langue et lecture disponible
+F11-004	D11	nugs	Concerts avec restrictions propres	documente	2026-09-06	SRC-136	serveur_desktop	integrations	conditionnel	M5	Vérifier recherche complète et limites bibliothèque, vidéo et Radio
+F11-005	D11	Préférences streaming	Fournisseur et édition préférés	contradictoire	2026-09-06	SRC-233;SRC-223	serveur_desktop	integrations	conditionnel	M5	Observer le choix de version hors bibliothèque
+F11-006	D11	Synchronisation de playlists	Bidirectionnel selon documentation récente	contradictoire	2026-09-06	SRC-015;SRC-206	serveur_desktop	integrations	conditionnel	M5	Tester modification aller-retour et effets de suppression
+F11-007	D11	Matching de playlists	Correspondances et titres introuvables	contradictoire	2026-09-06	SRC-206;SRC-136	serveur_desktop	integrations	conditionnel	M5	Comparer fichiers locaux, références distantes et rapport d’échecs
+F11-008	D11	Live Radio	Annuaire et stations enregistrées	documente	2026-09-06	SRC-224	serveur_desktop	integrations	conditionnel	M5	Retrouver une station par genre, lieu et langue
+F11-009	D11	Stations personnalisées	URL et flux préféré	documente	2026-09-06	SRC-224	serveur_desktop	integrations	conditionnel	M5	Enregistrer une URL de test et vérifier le flux sélectionné
+F11-010	D11	Scrobbling	Last.fm et ListenBrainz par profil	documente	2026-09-06	SRC-225	serveur_desktop	integrations	conditionnel	M5	Vérifier envoi au compte choisi et option radio désactivée
+F11-011	D11	API d’extensions	Découverte, autorisation, browse, transport	documente	2026-09-06	SRC-132	serveur_desktop	integrations	conditionnel	M5	Autoriser puis révoquer une extension de test
+F11-012	D11	Partage	Image locale et liens sociaux historiques	historique	2026-09-06	SRC-020	serveur_desktop	integrations	conditionnel	M5	Vérifier les destinations actuelles avant connexion
+F12-001	D12	Sauvegarde immédiate	Base sauvegardée hors médias	documente	2026-09-06	SRC-008;SRC-013	serveur_desktop	exploitation	socle	M1	Sauvegarder puis vérifier playlists, réglages et absence de médias copiés
+F12-002	D12	Sauvegarde planifiée	Planning et sauvegardes incrémentales	documente	2026-09-06	SRC-008;SRC-013	serveur_desktop	exploitation	retenu_provisoire	M2	Attendre deux sauvegardes et restaurer chacune
+F12-003	D12	Restauration	Base remplacée depuis sauvegarde	documente	2026-09-06	SRC-014	serveur_desktop	exploitation	socle	M1	Restaurer en isolation puis comparer données et lecture
+F12-004	D12	Journaux de diagnostic	Logs serveur et transport accessibles	documente	2026-09-06	SRC-134	serveur_desktop	exploitation	socle	M1	Reproduire une erreur et retrouver un diagnostic daté sans secret
+F12-005	D12	Raccourcis desktop	Navigation, sélection et lecture	documente	2026-09-06	SRC-011	serveur_desktop	exploitation	socle	M1	Exécuter les parcours essentiels au clavier sur Linux
+F12-006	D12	Infobulles	Libellés au survol activables	documente	2026-09-06	SRC-012	serveur_desktop	exploitation	retenu_provisoire	M2	Activer puis masquer les infobulles
+F12-007	D12	Now Playing	Vue plein écran et retour courant	documente	2026-09-06	SRC-218	serveur_desktop	exploitation	socle	M1	Quitter la position courante puis y revenir
+F12-008	D12	Persistance M1	Contrat kuro, Roon crash non prouvé	exigence_kuro	2026-09-06	INT-P1	serveur_desktop	exploitation	socle	M1	Redémarrer puis comparer bibliothèque, playlists, file et réglages
+F12-009	D12	Bibliothèque cible	20 000 albums et environ 3 To	exigence_kuro	2026-09-06	INT-P1	serveur_desktop	exploitation	socle	M1	Mesurer import, navigation, recherche et lecture à l’échelle cible
+F12-010	D12	Accessibilité desktop	Roon non établi dans ce corpus	a_observer	2026-09-06	INT-P1	serveur_desktop	exploitation	proposition	M1	Évaluer clavier, focus visible, lisibilité et lecteur d’écran
+F12-011	D12	Reprise après incident	Garanties Roon non observées	a_observer	2026-09-06	INT-P1	serveur_desktop	exploitation	proposition	M1	Interrompre import ou lecture puis comparer état et diagnostics
+F12-012	D12	Touches média et bureau	Intégration Linux non prouvée par Roon	proposition_kuro	2026-09-06	INT-P1	kuro	desktop	proposition	M1	Vérifier les touches média, notifications et fermeture de fenêtre
+F12-013	D12	Interruptions audio	Erreur affichée après interruptions répétées	documente	2026-09-06	SRC-024	serveur_desktop	serveur_lecture	retenu_provisoire	M1	Retarder la source puis vérifier erreur visible et état de lecture
+F13-001	D13	Usage sans Internet	Exigence locale kuro confirmée	exigence_kuro	2026-09-06	INT-P1	kuro	exploitation	socle	M1	Couper Internet et réaliser navigation, recherche et lecture locales
+F13-002	D13	Sources intactes	Aucune modification des médias requise	exigence_kuro	2026-09-06	INT-P1	kuro	exploitation	socle	M1	Comparer les empreintes avant import, lecture et restauration
+F13-003	D13	NAS absent	Absence distincte d’une suppression	exigence_kuro	2026-09-06	INT-P1	kuro	exploitation	socle	M1	Déconnecter le NAS puis vérifier identités, playlists et retour des fichiers
+F13-004	D13	Protection des secrets	Contrat kuro à définir	proposition_kuro	2026-09-06	INT-P1	kuro	exploitation	proposition	M1	Vérifier que diagnostics et exports ne révèlent aucun identifiant secret
+F13-005	D13	Accès des contrôleurs	Autorisation réseau à définir	proposition_kuro	2026-09-06	INT-P1	kuro	exploitation	proposition	M4	Refuser un contrôleur non autorisé puis révoquer un accès
+F14-001	D14	Licence du projet	Open source prévu, licence ouverte	exigence_kuro	2026-09-06	INT-P1	kuro	projet	socle	M1	Consigner la licence approuvée et vérifier les notices de distribution
+F14-002	D14	Construction reproductible	Procédure publique à proposer	proposition_kuro	2026-09-06	INT-P1	kuro	projet	proposition	M1	Reconstruire depuis un environnement propre avec versions documentées
+F14-003	D14	Droits des données fournisseurs	Autorisation des données externes à établir	proposition_kuro	2026-09-06	INT-P1	kuro	projet	conditionnel	M5	Documenter les droits de chaque fournisseur retenu
+F14-004	D14	Licences des dépendances	Examen avant toute distribution kuro	proposition_kuro	2026-09-06	INT-P1	kuro	projet	proposition	M1	Vérifier licences du moteur, décodeurs et interface retenus
+F15-001	D15	Client ARC distant	Consultation, lecture et éditions liées	documente	2026-09-06	SRC-230	mobile_futur	mobile	reporte	M7	Comparer données mobile et serveur sur un parcours distant
+F15-002	D15	Téléchargements locaux	Fichiers locaux seuls hors ligne	documente	2026-09-06	SRC-231	mobile_futur	mobile	reporte	M7	Télécharger puis lire sans réseau et vérifier les exclusions streaming
+F15-003	D15	Smart Downloads	Quota, rotation et conservation	documente	2026-09-06	SRC-232	mobile_futur	mobile	reporte	M7	Saturer un quota de test et constater la rotation des fichiers

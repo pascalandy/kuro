@@ -90,7 +90,9 @@ Les étapes numérotées ci-dessous reprennent les intitulés ou extraits des é
 
 - [x] Rédiger P1 avec usages, critères M1, corpus, inconnues, programme et journal.
 - [x] Faire valider P1 par le coordinateur et consigner le passage. Voir la passation P1 et le journal.
-- [ ] Rédiger puis faire valider P2 avec inventaire et sources identifiées.
+- [x] Rédiger P2 avec registre canonique, sources, quinze familles et limites explicites. Voir [inventaire](inventaire-roon.md).
+- [x] Vérifier les colonnes, identifiants, sources, dates, milestones et liens P2. Commande dans la [passation P2](passations/p2-inventaire.md).
+- [x] Faire valider P2 par le coordinateur avant P3. Revue consignée dans la passation P2 et le journal.
 - [ ] Rédiger puis faire valider P3 avec options, contrats, fournisseurs et risques.
 - [ ] Rédiger puis faire valider P4 avec six plans, sept milestones et validations.
 - [ ] Rédiger puis faire valider P5 avec couverture et cohérence.

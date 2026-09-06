@@ -11,11 +11,15 @@ Ce dépôt contient le dossier préparatoire. Aucun logiciel kuro n'existe dans 
 | [Contexte utilisateur](docs/contexte-utilisateur.md) | Demande confirmée, autorisations et informations manquantes |
 | [Programme](docs/programme.md) | Phases, critères de passage et définition de fin |
 | [Produit et MVP](docs/produit-et-mvp.md) | Usages, frontière du MVP et décisions ouvertes |
+| [Inventaire Roon](docs/inventaire-roon.md) | Couverture, méthode, contradictions et limites de preuve |
+| [Registre fonctionnel](docs/inventaire-fonctions.tsv) | Fonctions identifiées, sources et dispositions provisoires |
+| [Sources](docs/sources.md) | Corpus primaire daté et référence interne |
+| [Passation P2](docs/passations/p2-inventaire.md) | Inventaire validé et vérifications |
 | [Checklist](docs/checklist.md) | Progression et adaptation des playbooks au travail documentaire |
 | [Journal des décisions](docs/decisions.tsv) | Décisions datées et preuves locales |
 | [Passation P1](docs/passations/p1-cadrage.md) | Résultat remis au coordinateur avant P2 |
 
-P1 est validée par le coordinateur. P2 est la prochaine phase. Les documents P2 à P5 seront ajoutés après chaque passage de phase. Les futurs livrables ne sont pas des fonctionnalités disponibles.
+P1 et P2 sont validées par le coordinateur. P3 est la prochaine phase. P3 à P5 restent à produire après validation des phases précédentes. Les futurs livrables ne sont pas des fonctionnalités disponibles.
 
 ## Statut du projet
 

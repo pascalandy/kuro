@@ -1,12 +1,44 @@
-# Cadrage produit de kuro
+# Glossaire de kuro
 
 Ce glossaire fixe les termes propres au cadrage de la bibliothèque musicale kuro.
 
 ## Language
 
+**KuroKor**:
+Le rôle logique central de kuro qui détient l'état de Kuro et coordonne la lecture.
+_Avoid_: Kuro Core, serveur audio
+
+**Kuro Client**:
+Le rôle logique de contrôle qui transmet les intentions de l'utilisateur à KuroKor et présente l'état reçu. Les Kuro Clients ne décodent pas les médias, ne transportent pas le PCM et ne produisent pas la sortie audio.
+_Avoid_: KuroClient, renderer, point de lecture
+
+**Rôle logique**:
+Une responsabilité de kuro qui peut partager un hôte physique avec d'autres rôles ou vivre sur un hôte distinct.
+_Avoid_: Machine, processus
+
+**Hôte physique**:
+Un ordinateur qui exécute un ou plusieurs rôles logiques de kuro. Le nombre d'hôtes ne détermine pas à lui seul l'emplacement de la sortie audio.
+_Avoid_: Rôle, composant
+
+**Déploiement**:
+L'affectation des rôles logiques de kuro à des hôtes physiques et à leurs connexions de contrôle et de média.
+_Avoid_: Architecture produit
+
+**État de Kuro**:
+L'ensemble sur lequel kuro fait autorité, dont le catalogue, les playlists, la file et les données durables. Son emplacement physique reste indéterminé.
+_Avoid_: Contenu du NAS, médias
+
+**Catalogue**:
+L'ensemble durable des références de catalogue et des métadonnées connues de kuro. Certaines données du catalogue sont reconstructibles, mais le catalogue ne se réduit pas à un scan des sources musicales.
+_Avoid_: Source musicale, dossier du NAS
+
 **Source musicale**:
 Un emplacement configuré dont kuro consulte les médias.
 _Avoid_: Bibliothèque, stockage
+
+**NAS**:
+L'appareil qui conserve, en lecture seule pour kuro, les fichiers médias maîtres de la source musicale. Cette fonction ne détermine pas l'emplacement physique de l'état de Kuro.
+_Avoid_: KuroKor, stockage de l'état de Kuro
 
 **Média**:
 Un fichier audio de l'utilisateur que kuro consulte depuis une source musicale.
@@ -24,6 +56,38 @@ _Avoid_: Cache, index
 Une donnée que kuro peut recréer à partir des sources musicales et des données durables.
 _Avoid_: Donnée durable
 
+**Cache audio**:
+Une copie reconstructible d'un média du NAS, conservée par kuro pour préparer ou maintenir la lecture. Le cache audio n'est ni la source musicale maîtresse ni une donnée durable.
+_Avoid_: Média maître, sauvegarde
+
+**Moteur audio**:
+Le rôle logique de kuro qui décode les médias, maintient les tampons PCM de lecture et livre l'audio au point de lecture. Ce terme ne désigne ni un produit séparé ni un hôte physique imposé.
+_Avoid_: Kuro Client, lecteur externe
+
+**Tampon PCM de lecture**:
+Les échantillons décodés que le moteur audio tient prêts pour la sortie. Un tampon PCM est transitoire et ne remplace ni le média du NAS ni le cache audio.
+_Avoid_: Cache audio, fichier maître
+
+**Point de lecture**:
+L'emplacement physique où kuro remet effectivement l'audio à la chaîne de sortie, par exemple au DDC et au DAC. Le point de lecture est distinct du Kuro Client même lorsque leurs rôles partagent un hôte.
+_Avoid_: Contrôleur, Kuro Client
+
+**Point de lecture réseau**:
+Un point de lecture qui reçoit l'audio par le réseau, par exemple au moyen d'UPnP, puis alimente sa sortie locale.
+_Avoid_: Kuro Client, multiroom
+
+**Chemin de contrôle**:
+Le trajet des intentions de l'utilisateur et de l'état entre un Kuro Client et KuroKor. Ce chemin ne transporte pas les médias ni le PCM.
+_Avoid_: Chemin média
+
+**Chemin média**:
+Le trajet de l'audio depuis le NAS, par le moteur audio, jusqu'au point de lecture et à la chaîne de sortie. Il reste distinct du chemin de contrôle.
+_Avoid_: Chemin de contrôle
+
+**Bit-perfect**:
+L'égalité des échantillons audio observés entre deux points de contrôle nommés du chemin du signal. Cette égalité ne prouve ni la qualité sonore ni le comportement des horloges après le second point.
+_Avoid_: Qualité sonore, absence de jitter
+
 **Pochette détenue par l'application**:
 Une image durable ajoutée ou conservée dans les données de kuro.
 _Avoid_: Image de source
@@ -37,7 +101,7 @@ Une copie cohérente des données durables et des métadonnées connues à un in
 _Avoid_: Copie des médias, historique de sauvegardes
 
 **Restauration**:
-Le remplacement confirmé d'une bibliothèque par un snapshot de sauvegarde compatible.
+Le remplacement confirmé de l'état de Kuro par un snapshot de sauvegarde compatible.
 _Avoid_: Fusion de bibliothèques
 
 **File**:

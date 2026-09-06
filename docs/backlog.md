@@ -27,7 +27,7 @@ Ce registre contient les usages différés et les études requises avant une ado
 | ID | Question | Rôle futur chargé de la preuve | Preuve requise |
 | --- | --- | --- | --- |
 | KB-010 | Quelle licence convient au code et aux dépendances distribuées ? | Exploitation | Artefact exact, dépendances et comparaison des obligations |
-| KB-011 | Quelle stack réalise U-M1 sur le transport retenu avec le moins de risques connus ? | Architecture | Résultats de KB-025, prototype autorisé, import, recherche, paquet et reprise |
+| KB-011 | Quelle stack donne à KuroKor le contrôle des tampons PCM et de la sortie audio ? | Architecture | Rust évalué en priorité, laboratoire Go conservé comme référence, mêmes responsabilités, budgets mémoire et réseau, import, recherche, paquet et reprise comparés avant adoption |
 | KB-012 | Quels formats PCM stéréo, transformations et enchaînements gapless peuvent être garantis sur le chemin retenu ? | Audio | Corpus accepté, renderer et sortie identifiés, captures et mesures reproductibles |
 | KB-013 | Quels budgets mémoire et import permettent d'accepter 20 000 albums et environ 3 To ? | Exploitation et bibliothèque | Matériel, corpus cible et mesures reproductibles |
 | KB-014 | Le montage NAS fourni satisfait-il les contrats de U-M1 ? | Bibliothèque et exploitation | Montage déclaré, interruption, retour, relocalisation et mesures sur la cible |
@@ -35,6 +35,6 @@ Ce registre contient les usages différés et les études requises avant une ado
 | KB-022 | Comment détecter un contenu audio remplacé au même chemin sans rapprochement silencieux ? | Bibliothèque | Corpus avec tags modifiés, fichier remplacé et renommage, puis règles de référence observables |
 | KB-023 | Quels champs locaux et quels critères détaillés bornent les favoris et filtres de U-M2 ? | Produit et bibliothèque | Usage observé après U-M1, champs retenus et parcours d'acceptation |
 | KB-024 | Quels critères détaillés bornent l'organisation des éditions, coffrets et corrections internes de U-M3 ? | Produit et bibliothèque | Cas observés après U-M1, opérations retenues et conservation prouvée des références |
-| KB-025 | Quel transport relie le serveur kuro à un seul renderer Linux sans masquer les transformations ni les erreurs ? | Architecture et audio | Matrice documentée, frontières d'accès, essai PCM synthétique, plan de test USB, DDC et DAC |
+| KB-025 | Quel transport convient à la sortie locale de KuroKor et à un éventuel point de lecture distant sans masquer les transformations ni les erreurs ? | Architecture et audio | Matrice par scénario, frontières d'accès, essai PCM synthétique, plan de test USB, DDC et DAC; UPnP reste une option distincte du Kuro Client, sans adoption implicite du DSP ou du multiroom |
 
 Une étude négative demande un nouvel arbitrage. Elle ne réduit pas seule le volume cible, la garantie gapless retenue ou la restauration. Une entrée quitte ce fichier seulement lorsque sa décision de réadmission est enregistrée et que la roadmap est mise à jour.

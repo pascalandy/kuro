@@ -4,7 +4,7 @@ Label: wayfinder:map
 
 ## Destination
 
-Produire un cadrage courant de kuro organisé par usages, réconcilié après deux entretiens indépendants puis amendé par la priorité sonore donnée directement par l'utilisateur. Le résultat distingue les engagements de U-M1, l'étude préalable du transport, les étapes admises plus tard et le backlog.
+Produire un cadrage courant de kuro organisé par usages, réconcilié après deux entretiens indépendants puis amendé par la priorité sonore et les rôles donnés directement par l'utilisateur. Le résultat distingue les engagements de U-M1, l'étude préalable du transport, les étapes admises plus tard et le backlog.
 
 ## Notes
 
@@ -22,10 +22,11 @@ Produire un cadrage courant de kuro organisé par usages, réconcilié après de
 - [Réviser le cadrage avec un second entretien indépendant](issues/03-reviser-cadrage-second-entretien.md) : 15 décisions supplémentaires bornent U-M1, sa validation, les étapes suivantes et la disposition du corpus fonctionnel.
 - [Réconcilier le dossier et archiver le corpus initial](issues/04-reconcilier-et-archiver.md) : le cadrage courant cite les 40 décisions, dispose les 195 fonctions et conserve les 36 fichiers historiques dans une archive vérifiable.
 - [Donner la priorité à la qualité sonore](issues/05-priorite-qualite-sonore.md) : trois décisions directes placent l'étude du chemin `NAS -> serveur kuro -> renderer du salon -> USB -> DDC -> I2S sur HDMI -> DAC Terminator` avant le choix de la stack et les résultats produit.
+- [Clarifier les rôles Kuro et les scénarios de déploiement](issues/06-clarifier-les-roles.md) : deux décisions directes séparent KuroKor, les Kuro Clients et le NAS de leur hébergement, puis donnent la priorité à l'évaluation de Rust pour le futur cœur sans invalider le laboratoire Go.
 
 ## Not yet specified
 
-Le transport, la répartition du décodage, les transformations, le point de volume et les capacités exactes du DDC restent à étudier. Linux sur l'ordinateur du salon est une hypothèse initiale. Les questions techniques nécessaires à l'adoption vivent dans le backlog courant.
+Le transport, le moteur de production, la répartition du décodage, les transformations, le point de volume et les capacités exactes du DDC restent à étudier. Le point de lecture du scénario où KuroKor et le Kuro Client occupent deux ordinateurs n'est pas fixé. Linux sur l'ordinateur du salon est une hypothèse initiale. Les questions techniques nécessaires à l'adoption vivent dans le backlog courant.
 
 ## Out of scope
 

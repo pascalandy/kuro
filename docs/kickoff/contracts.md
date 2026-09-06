@@ -1,16 +1,18 @@
 # Contrats de conception et limite du laboratoire
 
-Ce document sépare le produit proposé du seul outil construit pendant le démarrage. Les signatures produit sont du pseudocode non implémenté. Le contrat Go exact du laboratoire vit dans [le plan d'implémentation](implementation-plan.md).
+Ce document sépare l'esquisse du produit et l'outil construit pendant le démarrage. Les signatures produit sont du pseudocode non implémenté. Elles conservent le candidat MPD du kickoff afin de rendre ses limites examinables. L'étude de KuroKor doit réévaluer la propriété du moteur et la limite locale ou distante avant toute implémentation produit. Le contrat Go exact du laboratoire vit dans [le plan d'implémentation](implementation-plan.md). KD-044, KD-045.
 
-## Produit proposé, propriétaires
+## Esquisse produit et rôles logiques
 
-| Propriétaire | État durable | État temporaire |
+| Élément | État durable | État temporaire ou responsabilité |
 | --- | --- | --- |
-| Service Kuro | Sources, références, métadonnées, playlists, occurrences de file, meilleur point enregistré, préférences et pochettes détenues | Préparations, sessions, erreurs et autorisations média |
-| Origine Kuro | Aucun second catalogue | Descripteurs et versions de transfert; lectures NAS bornées |
-| Agent salon | Identité d'installation et configuration de sortie, hors snapshot bibliothèque | Projection MPD, génération, surveillance du contrôle, réservations et cache reconstructible |
-| MPD privé | Aucune reprise de file faisant autorité | File courte, décodeur et tampons audio |
-| Interface | Préférences de présentation | Contexte de navigation et état reçu du service |
+| KuroKor | Sources, références, métadonnées, playlists, occurrences de file, meilleur point enregistré, préférences et pochettes détenues | Préparations, sessions, erreurs, autorisations média et coordination de lecture |
+| NAS | Fichiers musicaux maîtres | Accès aux médias en lecture seule; aucun second catalogue faisant autorité |
+| Kuro Client | Préférences locales de présentation, si elles existent | Intentions de l'utilisateur, contexte de navigation et état reçu de KuroKor |
+| Moteur audio à étudier | Aucune autorité durable distincte | Décodage, tampons PCM et sortie audio possédés par Kuro; hébergement local ou distant à fixer |
+| MPD de référence | Aucune reprise de file faisant autorité | File courte, décodeur et tampons observés seulement dans le candidat du kickoff |
+
+Le tableau attribue l'autorité logique. Il ne fixe pas le support physique des données applicatives ou des sauvegardes. KuroKor ne modifie pas les fichiers musicaux maîtres. Un stockage NAS distinct pourrait être étudié pour les données applicatives ou les sauvegardes sans déplacer l'autorité logique.
 
 L'état matériel du DDC et du DAC reste externe. Le rôle réel de leurs horloges est inconnu avant inventaire. Les réglages logiciels, les données observées et les inconnues ont des statuts distincts.
 
@@ -31,30 +33,30 @@ SignalPath = {source_format, decoded_format, delivered_format, transforms, downs
 Preparation = {id, requested_selection, base_revision, readiness}
 SessionView = {queue, position?, playback, pending_preparation?, signal_path, errors}
 
-Session.play_album(album, renderer, operation) -> accepted | error
+Session.play_album(album, output, operation) -> accepted | error
 Session.edit_queue(edit, revision, operation) -> SessionView | error
 Session.control(play | pause | stop | seek | previous | next | quit,
                 revision, operation) -> SessionView | error
 Session.snapshot() -> SessionView
 
-# Frontière privée, aucun client UI n'appelle ces étapes.
-Renderer.prepare(plan, generation) -> preparation | error
-Renderer.activate(preparation, generation) -> observation | error
-Renderer.observe() -> observation
-Renderer.stop(generation, reason) -> observation
+# Frontière privée, aucun Kuro Client n'appelle ces étapes.
+PlaybackPoint.prepare(plan, generation) -> preparation | error
+PlaybackPoint.activate(preparation, generation) -> observation | error
+PlaybackPoint.observe() -> observation
+PlaybackPoint.stop(generation, reason) -> observation
 ```
 
-`play_album` compose préparation et activation sous le geste Lecture initial. La préparation d'un remplacement garde la file active jusqu'à ce que le nouveau plan soit prêt et encore valide. Une modification concurrente invalide un ticket devenu périmé. L'activation n'est pas un simple acquittement réseau; l'interface montre la phase réelle et les erreurs. Le client ne coordonne pas ces étapes.
+`play_album` compose préparation et activation sous le geste Lecture initial. La préparation d'un remplacement garde la file active jusqu'à ce que le nouveau plan soit prêt et encore valide. Une modification concurrente invalide un ticket devenu périmé. L'activation n'est pas un simple acquittement réseau; l'interface montre la phase réelle et les erreurs. Le Kuro Client ne coordonne pas ces étapes.
 
-Une seule autorité au serveur écrit les données durables par transactions courtes. Un worker de scan retourne des lots. Une demande supplémentaire pendant scan devient au plus un passage différé. Aucun accès NAS ne conserve une transaction ouverte.
+KuroKor est la seule autorité logique qui écrit les données durables de Kuro par transactions courtes. Un worker de scan retourne des lots. Une demande supplémentaire pendant scan devient au plus un passage différé. Aucun accès aux fichiers musicaux du NAS ne conserve une transaction ouverte.
 
 `SourceId` ne dépend pas du montage. Tags modifiés et relocalisation explicite conservent les références selon les contrats courants. Retrait et absence diffèrent. Réajouter un chemin retiré ne réactive pas l'ancienne source. L'identité de contenu remplacé au même chemin reste KB-022. Un SHA-256 de transfert ne tranche pas cette question.
 
-Les doublons possèdent des `OccurrenceId` différents. Réordonner conserve l'occurrence courante. La retirer ou vider la file arrête. Les rapports renderer portent session, génération et occurrence. Une observation ancienne ne fait pas avancer la nouvelle file. La position durable exprime le meilleur point rapporté et son incertitude, jamais une exactitude implicite à l'échantillon.
+Les doublons possèdent des `OccurrenceId` différents. Réordonner conserve l'occurrence courante. La retirer ou vider la file arrête. Les rapports du point de lecture portent session, génération et occurrence. Une observation ancienne ne fait pas avancer la nouvelle file. La position durable exprime le meilleur point rapporté et son incertitude, jamais une exactitude implicite à l'échantillon.
 
-## Politiques média à comparer
+## Politiques média du candidat à comparer
 
-Le mode progressif donne une URL au moteur. Le mode préparé écrit un temporaire par transfert, vérifie longueur et empreinte puis publie atomiquement un fichier local. Seuls les fichiers complets entrent dans la projection locale MPD. Le budget de préparation compte courant, suivant et partiels. Il ne peut pas évincer une réservation active pour dissimuler un manque de capacité.
+Le candidat progressif donne une URL au moteur. Le candidat préparé écrit un temporaire par transfert, vérifie longueur et empreinte puis publie atomiquement un fichier local. Dans l'essai MPD, seuls les fichiers complets entrent dans sa projection locale. Le budget de préparation compte courant, suivant et partiels. Il ne peut pas évincer une réservation active pour dissimuler un manque de capacité.
 
 Une préparation de la piste suivante tardive peut arrêter à la frontière. Sa fin ultérieure ne redémarre rien. L'attente initiale et l'activité disque supplémentaires sont des coûts explicites du mode préparé. Aucun des deux modes n'est déclaré meilleur en qualité sonore.
 
@@ -64,9 +66,9 @@ La production doit garantir une version cohérente pendant une reprise de fichie
 
 La perte du service média et celle du contrôle sont deux événements. Un fichier complet peut rester lisible si seul le service média tombe. La perte du contrôle arrête après expiration d'un délai mesuré, même avec des fichiers prêts. Retour du réseau, retour du périphérique et redémarrage restent arrêtés. Un essai sans aucun trafic réseau est un mode de laboratoire distinct.
 
-L'agent est le seul client du MPD privé. Sa supervision doit arrêter MPD si l'agent meurt. La fermeture de fenêtre laisse les services actifs. Quitter attend l'arrêt ou en rapporte l'incertitude. Le mécanisme réseau authentifié et son délai restent à éprouver sur deux machines; aucun contrôle général LAN n'est ajouté par cette conception.
+Dans le candidat du kickoff, l'agent est le seul client du MPD privé. Sa supervision doit arrêter MPD si l'agent meurt. Cette règle reste une hypothèse à comparer avec un moteur audio possédé par Kuro. La fermeture de fenêtre laisse KuroKor actif. Quitter attend l'arrêt ou en rapporte l'incertitude. Le mécanisme réseau authentifié et son délai restent à éprouver lorsque le point de lecture est distant. Le Kuro Client n'est jamais ce transport audio.
 
-Le serveur sauvegarde les données durables et les pochettes détenues sans dépendre d'un snapshot du renderer. Les caches et secrets restent exclus. La restauration conserve une génération précédente récupérable et invalide toute autorisation de lecture antérieure. La preuve de restauration demeure un lot produit futur.
+KuroKor dirige la sauvegarde des données durables et des pochettes détenues sans dépendre d'un snapshot du point de lecture. Le support physique de la sauvegarde reste à choisir. Les caches et secrets restent exclus. La restauration conserve une génération précédente récupérable et invalide toute autorisation de lecture antérieure. La preuve de restauration demeure un lot produit futur.
 
 ## Ce que le laboratoire implémente
 

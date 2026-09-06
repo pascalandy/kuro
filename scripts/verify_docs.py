@@ -199,7 +199,7 @@ class Checker:
                             candidate = virtual_target
                     else:
                         candidate = (path.parent / value_path).resolve()
-                    if not candidate.is_file() and value_path.startswith(("docs/", ".scratch/", "README")):
+                    if not candidate.is_file() and value_path.startswith(("docs/", ".scratch/", "README", "CONTEXT.md")):
                         base = archive if archive in path.parents else self.root
                         candidate = (base / value_path).resolve()
                     if not candidate.is_file():

@@ -4,7 +4,9 @@ kuro est un projet de bibliothèque musicale et de lecture audio destiné d'abor
 
 Ce dépôt contient le cadrage du produit et un prototype technique relançable. Le [laboratoire Go](experiments/transport/go.mod) éprouve le transfert HTTP sur loopback, l'admission atomique et un modèle de lecture progressive face à la préparation complète. Un second laboratoire vérifie le trajet FLAC et le décodage silencieux par MPD. [Relancer les preuves](docs/kickoff/verification.md).
 
-La qualité sonore est désormais la priorité du projet. Le chemin cible part du NAS, passe par le serveur kuro et un ordinateur distinct dans le salon, puis rejoint le DDC existant en USB et le DAC Terminator en I2S sur HDMI. Linux sur l'ordinateur du salon reste une hypothèse de travail. Le [changement de portée demandé par l'utilisateur](docs/kickoff/scope-addendum.md) précède le choix du transport et de l'architecture. KD-041, KD-042.
+La qualité sonore est désormais la priorité du projet. `KuroKor` désigne le rôle central qui possède l'état durable de Kuro et coordonne la lecture. Un `Kuro Client` envoie les intentions de l'utilisateur et affiche l'état. Il ne décode pas, ne produit pas le son et ne transporte pas de PCM. Le NAS reste la source maîtresse des fichiers musicaux. Ces rôles logiques ne fixent pas le nombre de machines. Le [changement de portée demandé par l'utilisateur](docs/kickoff/scope-addendum.md) précède le choix du transport et de l'architecture. KD-041, KD-044.
+
+La première cible place KuroKor dans le salon, avec une sortie locale vers le DDC USB puis le DAC Terminator en I2S sur HDMI. Un Kuro Client peut partager cette machine ou fonctionner ailleurs. Un autre scénario sépare KuroKor et le Kuro Client sur deux ordinateurs, sans fixer encore l'emplacement du point de lecture. Les [scénarios de déploiement](docs/scenarios-deploiement.md) décrivent ces deux formes. KD-044.
 
 La sortie locale partagée et l'absence d'écoute réseau décrivent le cadrage antérieur. Elles ne bloquent plus l'étude du chemin cible. Les 195 dispositions conservent leur classification antérieure pendant cette revue limitée. Elles ne prouvent pas que le nouveau chemin est réalisable ou accepté. KD-043.
 
@@ -20,7 +22,8 @@ La sortie locale partagée et l'absence d'écoute réseau décrivent le cadrage 
 | [Validation](docs/validation.md) | Scénarios futurs et preuves attendues |
 | [Sources du cadrage](docs/sources-cadrage.md) | Sources externes consultées et limites de preuve |
 | [Priorité sonore](docs/kickoff/scope-addendum.md) | Changement demandé par l'utilisateur et limites de l'étude |
-| [Architecture de démarrage](docs/kickoff/architecture.md) | Service central, transfert et renderer proposés |
+| [Scénarios de déploiement](docs/scenarios-deploiement.md) | Rôles logiques et hébergements envisagés |
+| [Architecture de démarrage](docs/kickoff/architecture.md) | Rôles courants et candidats techniques déjà éprouvés |
 | [Synthèse de l'arena](docs/kickoff/synthesis.md) | Choix, rejets et résultats des laboratoires |
 | [Vérification du prototype](docs/kickoff/verification.md) | Commandes relançables, résultats et limites de preuve |
 | [Journal de décisions](docs/kickoff/decisions.tsv) | Décisions et preuves du kickoff |
@@ -36,4 +39,4 @@ Ce corpus historique n'est plus le cadrage courant. Ses milestones M1 à M7, ses
 
 ## Statut du projet
 
-Le produit reste à développer. Go est la direction provisoire du premier service, et MPD est le renderer proposé à éprouver sur la machine du salon. Le dépôt ne contient encore ni bibliothèque utilisable, ni interface, ni installation produit, ni agent de session. Les essais silencieux ne garantissent pas la qualité sonore sur USB, le DDC, I2S, le DAC ou la chaîne analogique. Les études de licence, de formats, de matériel et de NAS restent nécessaires. Roon fournit un corpus de comparaison documentaire, sans objectif de parité et sans preuve du comportement futur de kuro.
+Le produit reste à développer. Le laboratoire Go et les essais MPD restent des preuves techniques utiles, pas des choix exclusifs pour le produit. Puisque Kuro doit posséder ses tampons PCM et sa sortie audio, l'étude du futur cœur évalue Rust en priorité. Cette priorité ne vaut ni adoption de Rust, ni portage du laboratoire. Le dépôt ne contient encore ni bibliothèque utilisable, ni interface, ni installation produit, ni agent de session. Les essais silencieux ne garantissent pas la qualité sonore sur USB, le DDC, I2S, le DAC ou la chaîne analogique. Les études de licence, de formats, de matériel et de NAS restent nécessaires. Roon fournit un corpus de comparaison documentaire, sans objectif de parité, sans adoption implicite du DSP et sans preuve du comportement futur de kuro. KD-045.

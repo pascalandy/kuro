@@ -2,6 +2,12 @@
 
 Ces scénarios définissent les preuves attendues pour U-M1. Aucun scénario n'a été exécuté, car le produit n'existe pas encore. Une future preuve consigne la version, l'environnement, le corpus, les étapes, le résultat brut et l'écart au résultat attendu. L'utilisateur accepte U-M1 seulement lorsque les dix critères MVP et tous les contrats applicables passent ensemble. KD-001, KD-026, KD-038.
 
+## Preuve d'architecture préalable
+
+Avant le premier résultat produit, KB-025 compare les transports vers un ordinateur de salon distinct. La preuve attendue comprend une matrice des capacités, une description des transformations connues, les frontières d'accès et un essai PCM synthétique relançable. L'essai détecte une corruption volontaire et rend visibles les coupures ou les livraisons tardives selon son modèle. Un plan séparé couvre ensuite la sortie USB, le DDC, le lien I2S sur HDMI et le DAC Terminator. KD-041, KD-042.
+
+Cette preuve choisit une voie de prototype. Elle ne valide aucun scénario KV, ne mesure pas le jitter physique du DAC et ne prouve pas une différence sonore. Les capacités exactes du DDC restent inconnues tant que le matériel et sa documentation ne sont pas identifiés.
+
 ## KV-001. Installer et arrêter le service de session
 
 Sur un environnement Linux Omarchy propre, installer des versions figées, démarrer kuro, fermer la fenêtre puis la rouvrir. Le service reste actif après la fermeture de la fenêtre et **Quitter** l'arrête. La désinstallation normale conserve les données. Réinstaller puis relire les données conservées. Limite : ce scénario ne prouve ni la mise à jour automatique, ni un autre système d'exploitation. KD-003, KD-023.
@@ -36,11 +42,11 @@ Lancer un album, utiliser **Jouer ensuite** et **Ajouter**, réordonner, retirer
 
 ## KV-008. Borner les erreurs de lecture et de sortie
 
-Placer plusieurs références indisponibles dans la file, traverser la file, puis perdre le périphérique audio. Chaque référence indisponible est passée au plus une fois avec une erreur visible. La fin arrête la lecture. La perte de sortie arrête le son sans bascule et son retour ne relance rien. KD-010, KD-011, KD-039.
+Placer plusieurs références indisponibles dans la file, traverser la file, puis interrompre la session vers le renderer. Interrompre aussi la sortie audio du renderer dans un cas distinct. Chaque référence indisponible est passée au plus une fois avec une erreur visible. La fin arrête la lecture. Chaque perte de sortie arrête le son sans bascule. Le retour du réseau ou du périphérique ne relance rien. KD-010, KD-011, KD-039, KD-043.
 
-## KV-009. Mesurer le gapless et respecter le volume système
+## KV-009. Mesurer le gapless et contrôler le chemin du signal
 
-Sur la sortie partagée identifiée, lire les enchaînements homogènes du corpus PCM stéréo retenu et mesurer la rupture selon le seuil décidé par KB-012. Redémarrer kuro après avoir changé le volume système. kuro utilise le volume système courant, ne restaure aucun ancien niveau et ne l'augmente pas. Limite : DSD, multicanal, mode exclusif, volume matériel et traitement du signal sont hors U-M1. KD-014, KD-020, KD-039.
+Sur le renderer et la sortie identifiés, lire les enchaînements homogènes du corpus PCM stéréo retenu et mesurer la rupture selon le seuil décidé par KB-012. Consigner le format envoyé, le format reçu et chaque transformation connue. Vérifier le comportement du gain retenu après un redémarrage. kuro ne restaure aucun ancien niveau et ne l'augmente pas. Limite : ce scénario ne prouve ni la transparence d'une étape inconnue, ni le jitter physique, ni une supériorité sonore. KD-014, KD-020, KD-039, KD-041, KD-042.
 
 ## KV-010. Restaurer la file sans reprendre le son
 
@@ -54,7 +60,7 @@ Tester ensuite un snapshot invalide, un snapshot incompatible et une interruptio
 
 ## KV-012. Fonctionner hors Internet et protéger la session
 
-Après installation, couper Internet, démarrer à froid, relancer et parcourir toutes les fonctions de U-M1. Le produit n'exige aucun compte ou contrôle cloud. Vérifier qu'il n'écoute pas sur le réseau local et que le contrôle local appartient à l'utilisateur de la session. Produire un diagnostic avec données sensibles et contrôler l'aperçu expurgé avant export. Limite : un NAS exige seulement sa joignabilité sur le réseau local. KD-009, KD-022, KD-024.
+Après installation, couper Internet, démarrer à froid, relancer et parcourir toutes les fonctions de U-M1. Le produit n'exige aucun compte ou contrôle cloud. Vérifier que seuls les échanges requis avec le renderer configuré sont ouverts sur le réseau local. Vérifier que le contrôle appartient à la session autorisée et qu'aucune API générale n'est exposée sur le LAN. Produire un diagnostic avec données sensibles et contrôler l'aperçu expurgé avant export. Limite : le NAS et le renderer exigent seulement leur joignabilité sur le réseau local. KD-009, KD-022, KD-024, KD-042, KD-043.
 
 ## KV-013. Accepter la cible complète
 

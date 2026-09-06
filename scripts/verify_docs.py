@@ -175,14 +175,18 @@ class Checker:
                 self.error(f"tsv: {path}: {exc}")
                 continue
             width = len(rows[0]) if rows else 0
+            decision_log = bool(rows) and rows[0] == ["ts", "phase", "decision", "why", "evidence", "result"]
             for lineno, row in enumerate(rows[1:], 2):
                 if len(row) != width:
                     self.error(f"tsv: {path.relative_to(self.root)} ligne {lineno}: colonnes incohérentes")
                     continue
-                for cell in row:
+                cells = row[4].split("; ") if decision_log else row
+                for cell in cells:
                     value = cell.strip().strip("`<>")
                     if not value or value.startswith(("http://", "https://", "mailto:")):
                         continue
+                    if decision_log:
+                        value = re.sub(r":\d+(?::\d+)?$", "", value)
                     if not re.search(r"\.(?:md|tsv|csv|json|yaml|yml)(?:#[^\s]+)?$", value, re.I):
                         continue
                     value_path = value.split("#", 1)[0]

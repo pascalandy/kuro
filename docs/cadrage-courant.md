@@ -1,12 +1,14 @@
 # Cadrage courant de kuro
 
-Ce document fixe le cadrage retenu après deux entretiens indépendants. Les tickets [Définir les usages et les limites avec le premier entretien](../.scratch/cadrage-kuro/issues/01-definir-usages-et-limites.md) et [Réviser le cadrage avec un second entretien indépendant](../.scratch/cadrage-kuro/issues/03-reviser-cadrage-second-entretien.md) contiennent les décisions détaillées. Les identifiants `KD-*` ci-dessous en indiquent la source.
+Ce document fixe le cadrage retenu après deux entretiens indépendants, puis amendé par la [priorité sonore demandée directement par l'utilisateur](kickoff/scope-addendum.md). Les tickets [Définir les usages et les limites avec le premier entretien](../.scratch/cadrage-kuro/issues/01-definir-usages-et-limites.md), [Réviser le cadrage avec un second entretien indépendant](../.scratch/cadrage-kuro/issues/03-reviser-cadrage-second-entretien.md) et [Donner la priorité à la qualité sonore](../.scratch/cadrage-kuro/issues/05-priorite-qualite-sonore.md) contiennent les décisions détaillées. Les identifiants `KD-*` ci-dessous en indiquent la source.
 
 Le cadrage décrit un produit à construire. Il ne prouve aucun comportement, ne choisit aucune technique et ne crée aucun objectif de parité avec Roon. KD-025, KD-032, KD-038.
 
 ## Destination et acceptation de U-M1
 
-kuro permet à une personne d'écouter et de retrouver sa propre musique sur un desktop Linux Omarchy. U-M1 couvre les fichiers locaux et un montage NAS déjà disponible, environ 20 000 albums et 3 To, les vues et la recherche, les playlists et la file, une sortie locale, le gapless retenu, la persistance, une sauvegarde restaurable, les sources intactes et l'usage sans Internet. Les pochettes détenues par l'application font partie des données durables. KD-001, KD-002, KD-005, KD-009, KD-024.
+kuro permet à une personne d'écouter et de retrouver sa propre musique depuis un desktop Linux Omarchy. Le chemin d'écoute cible relie le NAS au serveur kuro, puis à un ordinateur distinct dans le salon. Cet ordinateur envoie le son par USB au DDC existant, puis par I2S sur HDMI au DAC Terminator. Linux sur l'ordinateur du salon est une hypothèse initiale. L'architecture, le protocole et le partage précis des responsabilités restent à choisir. KD-041, KD-042.
+
+U-M1 conserve environ 20 000 albums et 3 To, les vues et la recherche, les playlists et la file, le gapless retenu, la persistance, une sauvegarde restaurable, les sources intactes et l'usage sans Internet. Les pochettes détenues par l'application font partie des données durables. KD-001, KD-002, KD-005, KD-009, KD-024, KD-043.
 
 U-M1.A, U-M1.B et U-M1.C produisent des résultats utilisables dans cet ordre. Ces passages ne valent pas acceptation partielle. L'utilisateur accepte U-M1 lorsque les dix critères historiques MVP-01 à MVP-10 et les contrats courants sont prouvés ensemble sur la cible connue. KD-026, KD-038.
 
@@ -32,13 +34,13 @@ U-M1 permet de créer, nommer, renommer et supprimer une playlist, puis d'ajoute
 
 Retirer la piste courante arrête la lecture et garde le reste de la file. Vider la file arrête aussi la lecture. Réordonner la file conserve la piste en cours. **Précédent** et **Suivant** parcourent la file. Depuis la première piste, **Précédent** revient au début de celle-ci. KD-034.
 
-Une traversée passe une piste indisponible au plus une fois et affiche l'erreur. La fin de la file arrête la lecture. Le retour du NAS ne relance rien. La perte du périphérique arrête la lecture sans choisir une autre sortie. KD-010, KD-011, KD-018, KD-039.
+Une traversée passe une piste indisponible au plus une fois et affiche l'erreur. La fin de la file arrête la lecture. Le retour du NAS ne relance rien. La perte de la session vers le renderer ou de la sortie audio arrête la lecture sans choisir une autre sortie. Leur retour ne relance rien. KD-010, KD-011, KD-018, KD-039, KD-043.
 
-## Audio local
+## Audio et transport à étudier
 
-Le corpus candidat comprend FLAC, MP3, AAC, ALAC, WAV, AIFF, Vorbis et Opus en PCM stéréo. Une étude fixe le sous-ensemble garanti et mesure le gapless sur ses enchaînements homogènes. DSD, DSF, DFF, multicanal, mode exclusif, volume matériel et traitement du signal sont hors U-M1. KD-014, KD-039.
+Le corpus candidat comprend FLAC, MP3, AAC, ALAC, WAV, AIFF, Vorbis et Opus en PCM stéréo. Une étude fixe le sous-ensemble garanti et mesure le gapless sur ses enchaînements homogènes. Elle doit aussi rendre visibles les conversions, le rééchantillonnage, le gain et les limites de format connus. DSD, DSF, DFF, multicanal et traitement du signal restent hors U-M1 tant qu'une décision explicite ne les réadmet pas. KD-014, KD-039, KD-041, KD-043.
 
-U-M1 utilise la sortie partagée et le volume courant du système. kuro ne réimpose aucun ancien volume au démarrage et ne l'augmente jamais automatiquement. Une future commande de volume dans kuro dépend de l'étude audio. KD-020, KD-039.
+L'étude compare les transports licites et réalisables vers un seul ordinateur de salon. Elle distingue le transport réseau, les tampons, la sortie USB, le DDC et le DAC. L'équivalence des octets ou des échantillons ne prouve ni le jitter physique au DAC, ni une supériorité sonore. Le volume et les éventuels modes exclusifs dépendent de cette étude. kuro ne réimpose aucun ancien volume au démarrage et ne l'augmente jamais automatiquement. KD-020, KD-039, KD-041, KD-042.
 
 ## Persistance, sauvegarde et cycle de vie
 
@@ -54,10 +56,10 @@ L'installation et la désinstallation utilisent des versions figées et sont rep
 
 Après l'installation, toutes les fonctions de U-M1 démarrent et fonctionnent sans Internet pendant une durée indéfinie. Aucun compte ou contrôle cloud n'est requis. L'accès au NAS dépend seulement du réseau local. KD-009, KD-024.
 
-U-M1 n'écoute pas sur le réseau local. Le contrôle local est limité à l'utilisateur de la session. Les journaux retirent les données sensibles et présentent un aperçu avant export. Le clavier, un focus visible, les libellés accessibles, le zoom et le déplacement dans la piste font partie de U-M1. KD-019, KD-022.
+Le chemin cible autorise seulement les échanges réseau nécessaires entre le serveur kuro et un renderer configuré. L'étude doit séparer l'accès aux médias, le contrôle de la session, la découverte et les états du renderer. Cette ouverture limitée n'autorise ni une API de contrôle générale sur le LAN, ni plusieurs zones, ni un accès distant. Le contrôle utilisateur reste limité à la session autorisée. Les journaux retirent les données sensibles et présentent un aperçu avant export. Le clavier, un focus visible, les libellés accessibles, le zoom et le déplacement dans la piste font partie de U-M1. KD-019, KD-022, KD-042, KD-043.
 
 ## Mesures et décisions techniques
 
 La recherche visible sous 300 ms au 95e percentile et la première page sous une seconde restent des objectifs de conception. La mémoire et la durée d'import doivent être mesurées sur le matériel et le corpus cibles. Ces nombres ne sont pas des résultats actuels. KD-015, KD-027.
 
-La licence, la stack, le corpus de formats garanti, le matériel, l'accès NAS et le paquet demandent les études du [backlog](backlog.md). Une étude négative entraîne un arbitrage explicite. Elle ne réduit pas seule le volume cible, le gapless retenu ou la restauration. KD-025, KD-038.
+Le transport et la chaîne audio doivent être étudiés avant la stack. La licence, le corpus de formats garanti, le matériel, l'accès NAS et le paquet demandent aussi les études du [backlog](backlog.md). Une étude négative entraîne un arbitrage explicite. Elle ne réduit pas seule le volume cible, le gapless retenu ou la restauration. KD-025, KD-038, KD-041.

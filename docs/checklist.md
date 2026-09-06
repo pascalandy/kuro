@@ -93,7 +93,9 @@ Les étapes numérotées ci-dessous reprennent les intitulés ou extraits des é
 - [x] Rédiger P2 avec registre canonique, sources, quinze familles et limites explicites. Voir [inventaire](inventaire-roon.md).
 - [x] Vérifier les colonnes, identifiants, sources, dates, milestones et liens P2. Commande dans la [passation P2](passations/p2-inventaire.md).
 - [x] Faire valider P2 par le coordinateur avant P3. Revue consignée dans la passation P2 et le journal.
-- [ ] Rédiger puis faire valider P3 avec options, contrats, fournisseurs et risques.
+- [x] Rédiger P3 avec trois formes, contrats, composants, fournisseurs, licences et études futures.
+- [x] Vérifier les références P3 et préserver les critères et le registre P1-P2. Voir la [passation P3](passations/p3-architecture.md).
+- [x] Faire valider P3 par le coordinateur avant P4. Revue consignée dans la passation P3 et le journal.
 - [ ] Rédiger puis faire valider P4 avec six plans, sept milestones et validations.
 - [ ] Rédiger puis faire valider P5 avec couverture et cohérence.
 

@@ -99,16 +99,17 @@ Les étapes numérotées ci-dessous reprennent les intitulés ou extraits des é
 - [x] Rédiger P4 avec six plans, sept milestones, 28 phases et 50 scénarios futurs. Voir la [roadmap](roadmap.md).
 - [x] Vérifier les 195 correspondances uniques, cas spécifiques conservés, liens et dépendances sans cycle. Commande dans la [passation P4](passations/p4-multiplan.md).
 - [x] Faire valider P4 par le coordinateur avant P5 ou commit. Revue intégrale et autorisation de commit local consignées dans la passation P4 et le journal.
-- [ ] Rédiger puis faire valider P5 avec couverture et cohérence.
+- [x] Rédiger et vérifier P5 avec couverture et cohérence. Voir la [revue finale](revue-finale.md) et la [passation P5](passations/p5-revue.md).
+- [x] Faire valider P5 par le coordinateur avant commit. Lecture intégrale des nouveaux livrables et contrôle indépendant consignés dans la passation P5.
 
 ## Vérifier les fichiers et publier
 
-- [ ] Vérifier les liens locaux et les chemins de preuve du journal au dernier état du dossier.
-- [ ] Vérifier l'unicité et les références des identifiants ajoutés en P2 à P5.
-- [ ] Vérifier la largeur du TSV et l'absence de cellules interprétables comme formules.
-- [ ] Relire les critères M1 dans tous les plans. Vérifier le NAS, le volume cible, les sources intactes et l'usage sans Internet.
-- [ ] Vérifier les fichiers publiables. Exclure secrets, détails privés et médias réels.
-- [ ] Relire la prose et le journal avant commit. Ne pas présenter une revue indépendante comme déjà effectuée.
+- [x] Vérifier les liens locaux et les chemins de preuve du journal au dernier état du dossier.
+- [x] Vérifier l'unicité et les références des identifiants ajoutés en P2 à P5.
+- [x] Vérifier la largeur du TSV et l'absence de cellules interprétables comme formules.
+- [x] Relire les critères M1 dans tous les plans. Vérifier le NAS, le volume cible, les sources intactes et l'usage sans Internet.
+- [x] Vérifier les fichiers publiables. Exclure secrets, détails privés et médias réels.
+- [x] Relire la prose et le journal avant commit. Ne pas présenter une revue indépendante comme déjà effectuée.
 - [ ] Après revue, créer les commits documentaires selon la stratégie du coordinateur.
 - [ ] Publier la branche et créer la PR autorisées.
 - [ ] Vérifier le SHA distant, le contenu de la PR et les liens de publication.

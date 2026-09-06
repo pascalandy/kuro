@@ -4,10 +4,15 @@ kuro est un projet de bibliothèque musicale et de lecture audio, destiné d'abo
 
 Ce dépôt contient le dossier préparatoire. Aucun logiciel kuro n'existe dans ce dépôt. Le programme autorisé couvre les phases documentaires P1 à P5. Il s'arrête avant tout développement.
 
+Pour commencer, lire la [revue finale](docs/revue-finale.md) et les [décisions ouvertes](docs/decisions-ouvertes.md). La roadmap donne ensuite les six plans et les sept milestones futures.
+
 ## Lire le dossier
 
 | Document | Contenu |
 | --- | --- |
+| [Revue finale P5](docs/revue-finale.md) | Couverture des dix usages et dix critères MVP, constats et limites |
+| [Décisions ouvertes](docs/decisions-ouvertes.md) | Neuf arbitrages, responsables, informations manquantes et effet sur la suite |
+| [Passation P5](docs/passations/p5-revue.md) | Revue indépendante validée et contrôle complet rejouable |
 | [Contexte utilisateur](docs/contexte-utilisateur.md) | Demande confirmée, autorisations et informations manquantes |
 | [Programme](docs/programme.md) | Phases, critères de passage et définition de fin |
 | [Produit et MVP](docs/produit-et-mvp.md) | Usages, frontière du MVP et décisions ouvertes |
@@ -27,7 +32,7 @@ Ce dépôt contient le dossier préparatoire. Aucun logiciel kuro n'existe dans 
 | [Journal des décisions](docs/decisions.tsv) | Décisions datées et preuves locales |
 | [Passation P1](docs/passations/p1-cadrage.md) | Résultat remis au coordinateur avant P2 |
 
-P1, P2, P3 et P4 sont validées par le coordinateur. P5 reste à produire pour la revue finale de couverture et de cohérence. Les livrables documentaires ne sont pas des fonctionnalités disponibles.
+P1 à P5 sont validées par le coordinateur. P5 a été relue par un nouvel agent GPT-6 Astra medium, puis contrôlée indépendamment par le coordinateur. La publication est une opération séparée. Les livrables documentaires ne sont pas des fonctionnalités disponibles.
 
 ## Statut du projet
 

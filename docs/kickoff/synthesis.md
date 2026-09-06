@@ -43,6 +43,10 @@ Le contrôle des red flags a écarté le partage durable qui laisse fuir ses rè
 
 ## Vérification et état
 
-La lecture comparée et la revue de conception sont terminées. L'implémentation du laboratoire est autorisée par le [plan stable](implementation-plan.md). Au moment de cette synthèse, ses contrôles sont en attente. Aucun succès de la preuve préliminaire ou du build MPD ne remplace cette exécution.
+La lecture comparée et la revue de conception sont terminées. Le [laboratoire Go](implementation-plan.md) est maintenant implémenté. Ses sept cas passent : `clean`, `corrupt`, `truncate`, `resume`, `changed-etag`, `stall` et `budget`. `Verify` relit les artefacts bruts, recalcule les empreintes et le modèle, et refuse une preuve absente ou modifiée. `go test ./...`, `go test -race ./...` et `go vet ./...` passent avec Go 1.27.0. Le module fixe Go 1.25 comme minimum.
 
-Le parent complétera ici les résultats réellement obtenus, les artefacts et toute déviation de contrat après les tests Go, les contrôles négatifs et les essais FLAC ou MPD distincts. Aucun U-M1, KV produit, format garanti, jitter physique ou classement sonore n'est accepté par cette note.
+La preuve audio séparée utilise une origine HTTP Python sur loopback. Le laboratoire Go transporte les WAV, pas les FLAC. L'origine Python a transporté deux FLAC, puis le script a comparé leurs octets reçus et leur PCM décodé aux maîtres. MPD 0.24.15 a produit trois captures FIFO à partir des WAV admis par Go, des FLAC reçus, puis des mêmes FLAC lus directement par HTTP. Chaque capture contient 192 000 octets et 48 000 frames stéréo, avec le SHA-256 `24d01720643e20bd7f7e09cc52f5370a5aeb12c6536adba0198b1e7951144ff5` attendu.
+
+Le script de build fixe la source MPD 0.24.15, son empreinte, Meson 1.12.0 et Ninja 1.13.2. Les bibliothèques de développement de l'hôte restent des entrées non verrouillées. Le build du laboratoire désactive toutes les sorties physiques. Les configurations, versions, journaux, réponses HTTP et comparaisons restent dans le dossier de chaque exécution. Le [relevé relançable](verification.md) donne les commandes et les résultats minimaux. Les grands artefacts bruts et les fichiers audio ne sont pas versionnés.
+
+Aucun U-M1, KV produit, format matériel garanti, jitter physique ou classement sonore n'est accepté par cette note. Le NAS, l'installation propre, l'agent de session, ALSA, USB, le DDC, I2S, le DAC, l'analogique et l'écoute restent à éprouver.

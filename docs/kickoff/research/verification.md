@@ -1,6 +1,6 @@
 # Vérifier la qualité sonore du trajet Kuro
 
-Statut : recherche primaire et plan de vérification datés du 2026-09-06. Ce rapport est une entrée de synthèse, pas une décision d'architecture ni une validation du trajet Kuro.
+Statut : recherche primaire et plan de vérification datés du 2026-09-06. Le laboratoire retenu a depuis exécuté les étages HTTP sur loopback, FLAC et MPD FIFO décrits ici. Le [relevé courant](../verification.md) contient les résultats et les limites. Ce rapport ne valide pas le trajet matériel Kuro.
 
 ## Conclusion de travail
 
@@ -86,7 +86,7 @@ Le [résultat brut conservé](preliminary/transport-probe-result.json) a été o
 Cette expérience préliminaire montre seulement que des octets identiques peuvent arriver avec un comportement temporel différent.
 Elle n'a ouvert aucune sortie audio.
 Elle ne prouve rien sur le NAS, le serveur Kuro futur, l'ordinateur de salon, le DDC, I2S, le DAC, l'analogique ou l'audibilité.
-Le prototype retenu sera créé séparément après la synthèse. Il devra ajouter un transfert corrompu, un transfert tronqué et la trace brute des arrivées. Ces contrôles vérifieront les échecs et permettront de recalculer le modèle d'underrun.
+Le prototype retenu a ensuite ajouté les transferts corrompu et tronqué, les reprises HTTP, l'admission atomique et les traces d'arrivée. Son vérificateur relit les artefacts et recalcule le modèle de périodes manquantes. Ces résultats restent limités aux fixtures et au loopback local.
 
 ## Matrice matérielle après identification des appareils
 

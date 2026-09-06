@@ -1,0 +1,154 @@
+{
+  "name": "stall",
+  "source_before": [
+    "1848ce5cca0467d0a1d360d4b9d086f48b7c7c4c3ed16698f89cdb66306f72f0",
+    "35c6b13f7b289b2152f452dad77f5f2ae4d56e068ac236cb5e4b44c850fdac23",
+    "f6462929e6c282b7ca1e96c68d5b557d50683f63bc40301d6809a4cebb012f0d",
+    "b49d560b6015db975f10b0e69c54eeed707f5baddc09b957daad72347bd01955"
+  ],
+  "source_after": [
+    "1848ce5cca0467d0a1d360d4b9d086f48b7c7c4c3ed16698f89cdb66306f72f0",
+    "35c6b13f7b289b2152f452dad77f5f2ae4d56e068ac236cb5e4b44c850fdac23",
+    "f6462929e6c282b7ca1e96c68d5b557d50683f63bc40301d6809a4cebb012f0d",
+    "b49d560b6015db975f10b0e69c54eeed707f5baddc09b957daad72347bd01955"
+  ],
+  "transfers": [
+    {
+      "id": "track-1",
+      "body": "ready/stall-track-1.wav",
+      "ready": "ready/stall-track-1.wav",
+      "reason": "verified",
+      "trace": {
+        "arrivals": [
+          {
+            "at_ns": 639316,
+            "bytes": 3917
+          },
+          {
+            "at_ns": 643784,
+            "bytes": 8013
+          },
+          {
+            "at_ns": 660080,
+            "bytes": 8192
+          },
+          {
+            "at_ns": 301424532,
+            "bytes": 12288
+          },
+          {
+            "at_ns": 301431459,
+            "bytes": 16384
+          },
+          {
+            "at_ns": 301437655,
+            "bytes": 20480
+          },
+          {
+            "at_ns": 301441077,
+            "bytes": 24576
+          },
+          {
+            "at_ns": 301444728,
+            "bytes": 28672
+          },
+          {
+            "at_ns": 301448127,
+            "bytes": 32768
+          },
+          {
+            "at_ns": 301463412,
+            "bytes": 36864
+          },
+          {
+            "at_ns": 301466695,
+            "bytes": 40960
+          },
+          {
+            "at_ns": 301470244,
+            "bytes": 45056
+          },
+          {
+            "at_ns": 301473795,
+            "bytes": 49152
+          },
+          {
+            "at_ns": 301477298,
+            "bytes": 53248
+          },
+          {
+            "at_ns": 301480736,
+            "bytes": 57344
+          },
+          {
+            "at_ns": 301484167,
+            "bytes": 61440
+          },
+          {
+            "at_ns": 301487398,
+            "bytes": 65536
+          },
+          {
+            "at_ns": 301492080,
+            "bytes": 69632
+          },
+          {
+            "at_ns": 301495870,
+            "bytes": 73728
+          },
+          {
+            "at_ns": 301499464,
+            "bytes": 77824
+          },
+          {
+            "at_ns": 301503024,
+            "bytes": 81920
+          },
+          {
+            "at_ns": 301506658,
+            "bytes": 86016
+          },
+          {
+            "at_ns": 301510300,
+            "bytes": 90112
+          },
+          {
+            "at_ns": 301513969,
+            "bytes": 94208
+          },
+          {
+            "at_ns": 301545640,
+            "bytes": 96044
+          }
+        ],
+        "expected_bytes": 96044,
+        "header_bytes": 44,
+        "verified_at_ns": 301684086
+      },
+      "receipts": [
+        {
+          "number": 1,
+          "offset": 0,
+          "status": 200,
+          "content_range": "",
+          "etag": "\"1848ce5cca0467d0a1d360d4b9d086f48b7c7c4c3ed16698f89cdb66306f72f0\"",
+          "content_length": 96044,
+          "body": "cases/stall/track-1-response-1.bin",
+          "read_error": ""
+        }
+      ],
+      "comparison": {
+        "progressive_start_ns": 639316,
+        "progressive_missing_periods": 26,
+        "staged_start_ns": 310000000
+      }
+    }
+  ],
+  "budget": 0,
+  "required": 0,
+  "reserved": "",
+  "denied": false,
+  "reservations": {
+    "track-1": 96044
+  }
+}

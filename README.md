@@ -2,7 +2,7 @@
 
 kuro est un projet de bibliothèque musicale et de lecture audio destiné d'abord à Linux sur Omarchy. La cible initiale comprend des fichiers locaux et un dossier NAS, pour environ 20 000 albums et 3 To.
 
-Ce dépôt contient le cadrage du produit. Aucun logiciel kuro n'existe encore. Le cadrage fixe les usages et les preuves attendues avant le développement, sans choisir une stack ni attribuer une licence.
+Ce dépôt contient le cadrage du produit et un prototype technique relançable. Le [laboratoire Go](experiments/transport/go.mod) éprouve le transfert HTTP sur loopback, l'admission atomique et un modèle de lecture progressive face à la préparation complète. Un second laboratoire vérifie le trajet FLAC et le décodage silencieux par MPD. [Relancer les preuves](docs/kickoff/verification.md).
 
 La qualité sonore est désormais la priorité du projet. Le chemin cible part du NAS, passe par le serveur kuro et un ordinateur distinct dans le salon, puis rejoint le DDC existant en USB et le DAC Terminator en I2S sur HDMI. Linux sur l'ordinateur du salon reste une hypothèse de travail. Le [changement de portée demandé par l'utilisateur](docs/kickoff/scope-addendum.md) précède le choix du transport et de l'architecture. KD-041, KD-042.
 
@@ -20,6 +20,10 @@ La sortie locale partagée et l'absence d'écoute réseau décrivent le cadrage 
 | [Validation](docs/validation.md) | Scénarios futurs et preuves attendues |
 | [Sources du cadrage](docs/sources-cadrage.md) | Sources externes consultées et limites de preuve |
 | [Priorité sonore](docs/kickoff/scope-addendum.md) | Changement demandé par l'utilisateur et limites de l'étude |
+| [Architecture de démarrage](docs/kickoff/architecture.md) | Service central, transfert et renderer proposés |
+| [Synthèse de l'arena](docs/kickoff/synthesis.md) | Choix, rejets et résultats des laboratoires |
+| [Vérification du prototype](docs/kickoff/verification.md) | Commandes relançables, résultats et limites de preuve |
+| [Journal de décisions](docs/kickoff/decisions.tsv) | Décisions et preuves du kickoff |
 | [Carte Wayfinder](.scratch/cadrage-kuro/map.md) | Index des décisions prises pendant les entretiens |
 
 Les décisions détaillées vivent dans les tickets liés depuis la carte Wayfinder. Les identifiants `KD-*` relient les documents courants à ces décisions. Les identifiants `KB-*` désignent les questions du backlog. Les identifiants `KV-*` désignent les scénarios de validation.
@@ -32,4 +36,4 @@ Ce corpus historique n'est plus le cadrage courant. Ses milestones M1 à M7, ses
 
 ## Statut du projet
 
-Le produit reste à développer. Aucun prototype n'est encore déclaré dans ce cadrage. L'étude de transport et de la chaîne audio précède le choix de la stack et le premier résultat produit. Les études de licence, de formats, de matériel et de NAS restent nécessaires. Roon fournit un corpus de comparaison documentaire, sans objectif de parité et sans preuve du comportement futur de kuro.
+Le produit reste à développer. Go est la direction provisoire du premier service, et MPD est le renderer proposé à éprouver sur la machine du salon. Le dépôt ne contient encore ni bibliothèque utilisable, ni interface, ni installation produit, ni agent de session. Les essais silencieux ne garantissent pas la qualité sonore sur USB, le DDC, I2S, le DAC ou la chaîne analogique. Les études de licence, de formats, de matériel et de NAS restent nécessaires. Roon fournit un corpus de comparaison documentaire, sans objectif de parité et sans preuve du comportement futur de kuro.

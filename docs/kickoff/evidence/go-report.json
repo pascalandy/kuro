@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "checks": [
+    {
+      "name": "clean",
+      "passed": true,
+      "detail": "raw bodies, source hashes, HTTP receipts and admission/model oracles verified"
+    },
+    {
+      "name": "corrupt",
+      "passed": true,
+      "detail": "raw bodies, source hashes, HTTP receipts and admission/model oracles verified"
+    },
+    {
+      "name": "truncate",
+      "passed": true,
+      "detail": "raw bodies, source hashes, HTTP receipts and admission/model oracles verified"
+    },
+    {
+      "name": "resume",
+      "passed": true,
+      "detail": "raw bodies, source hashes, HTTP receipts and admission/model oracles verified"
+    },
+    {
+      "name": "changed-etag",
+      "passed": true,
+      "detail": "raw bodies, source hashes, HTTP receipts and admission/model oracles verified"
+    },
+    {
+      "name": "stall",
+      "passed": true,
+      "detail": "raw bodies, source hashes, HTTP receipts and admission/model oracles verified"
+    },
+    {
+      "name": "budget",
+      "passed": true,
+      "detail": "raw bodies, source hashes, HTTP receipts and admission/model oracles verified"
+    }
+  ]
+}

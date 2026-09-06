@@ -1,6 +1,12 @@
-# Construire la preuve de transport
+# Plan et réalisation de la preuve de transport
 
-Ce plan implémente le laboratoire défini dans [les contrats](contracts.md). Il ne construit ni bibliothèque, ni service de lecture, ni agent MPD. La [synthèse](synthesis.md) retient leurs responsabilités futures séparément.
+Ce plan a guidé le laboratoire défini dans [les contrats](contracts.md). Il ne construit ni bibliothèque, ni service de lecture, ni agent MPD. La [synthèse](synthesis.md) retient leurs responsabilités futures séparément.
+
+## Réalisation observée
+
+Le module livré sous `experiments/transport` suit le contrat ci-dessous et utilise seulement la bibliothèque standard. Son `go.mod` fixe Go 1.25 comme version minimale. Les contrôles finaux ont utilisé Go 1.27.0.
+
+Le runtime et la CLI comptent 715 lignes, hors tests. La cible était inférieure à 700. Les 15 lignes supplémentaires couvrent les contrôles d'overflow et de budget aux frontières. Elles n'ajoutent ni framework, ni couche d'abstraction. Les sept cas, les tests unitaires et d'intégration, la course detector, `go vet` et la relecture indépendante par `Verify` passent. Le [relevé de vérification](verification.md) donne les commandes et les limites.
 
 ## Contrat remis au développeur
 
@@ -91,13 +97,15 @@ Les temps système du transfert peuvent varier entre exécutions. Le recalcul su
 
 ## Commandes exactes
 
-Exécuter depuis `experiments/transport` après implémentation :
+Exécuter depuis la racine du dépôt. Le répertoire parent existe, mais `run` reçoit un chemin enfant absent :
 
 ```sh
-go test ./...
-go test -race ./...
-go run ./cmd/kuro-transport-lab run --out /tmp/kuro-transport-proof-001
-go run ./cmd/kuro-transport-lab verify --out /tmp/kuro-transport-proof-001
+go -C experiments/transport test ./...
+go -C experiments/transport test -race ./...
+go -C experiments/transport vet ./...
+lab_root="$(mktemp -d /tmp/kuro-transport-proof.XXXXXXXX)"
+go -C experiments/transport run ./cmd/kuro-transport-lab run --out "$lab_root/run"
+go -C experiments/transport run ./cmd/kuro-transport-lab verify --out "$lab_root/run"
 ```
 
 La CLI imprime le rapport JSON sur stdout, les erreurs sur stderr et sort avec un code non nul si un oracle échoue. Un rejet injecté attendu fait réussir son cas. Les arguments inconnus, un `--out` absent et un répertoire déjà existant pour `run` échouent. `verify` exige un dossier existant et ne l'écrase pas. Ne pas ajouter d'option d'écrasement.
@@ -110,4 +118,4 @@ Le décodage réel FLAC utilise un outil installé et identifié. Encoder le PCM
 
 Une capture MPD silencieuse vers FIFO reste une preuve distincte. Le build disponible pendant la conception est MPD 0.24.15 avec FLAC, WAV et FIFO, sans ALSA. Le script relançable doit recevoir son chemin en argument et conserver configuration et version. Il ne prouve ni USB, ni DDC, ni DAC. Le script MPD et sa recette de build appartiennent au lot de recherche, pas au runtime Go.
 
-Après les contrôles, le parent met à jour [la synthèse](synthesis.md) avec les commandes réellement exécutées et leurs résultats. Aucun test du laboratoire ne clôt un KV produit.
+La [synthèse](synthesis.md) contient les résultats exécutés. Aucun test du laboratoire ne clôt un KV produit.

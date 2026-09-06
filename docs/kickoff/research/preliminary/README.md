@@ -1,6 +1,6 @@
 # Preliminary transport probe
 
-Status: executed research artifact from 2026-09-06. This probe is disposable evidence. The retained prototype will be selected and created separately after kickoff synthesis.
+Status: executed research artifact from 2026-09-06. This disposable probe predates the retained Go prototype and does not report its results. See the [current verification record](../../verification.md).
 
 [`transport_probe.py`](transport_probe.py) transfers synthetic FLAC and PCM over localhost. [`transport-probe-result.json`](transport-probe-result.json) preserves the observed output. The probe opened no audio device and used no NAS, Kuro server, living-room renderer, DDC, DAC, or analog capture.
 

@@ -1,6 +1,6 @@
 # Kickoff research inputs
 
-Status: research inputs captured on 2026-09-06. These reports inform kickoff synthesis. Their recommendations are candidates, not an arena decision or an adopted architecture.
+Status: research inputs captured on 2026-09-06. The arena has since selected an architecture and the repository now contains a retained transport prototype. These reports remain dated inputs, not the active decision record.
 
 - [Linux technology baseline](research/technology-baseline.md) records local catalog, UI, service, playback, packaging, and license observations.
 - [Network transport and clock domains](research/transport-and-clock-domains.md) compares renderer transports and separates network timing from converter timing.
@@ -8,4 +8,4 @@ Status: research inputs captured on 2026-09-06. These reports inform kickoff syn
 - [Sound-quality verification](research/verification.md) defines the evidence chain from source bytes through listening tests.
 - [Preliminary transport probe](research/preliminary/README.md) contains the executed localhost script and its preserved raw result.
 
-The reports do not prove behavior on a NAS, a clean installation, the living-room renderer, the DDC, the DAC, or the analog chain. Installed tool versions are observations from one machine. The user called the DDC maker "Dynafripp," but the name and maker remain unverified. The DDC model and the Terminator revision are unknown. The retained prototype will be selected and created separately after synthesis.
+The reports and the later prototype do not prove behavior on a NAS, a clean installation, the living-room renderer, the DDC, the DAC, or the analog chain. Installed tool versions are observations from one machine. The user called the DDC maker "Dynafripp," but the name and maker remain unverified. The DDC model and the Terminator revision are unknown. See the [arena synthesis](synthesis.md) for the selected direction and [prototype verification](verification.md) for the executed results.

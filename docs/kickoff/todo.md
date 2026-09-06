@@ -3,8 +3,8 @@
 - [x] Ground, revised for SQ transport and the living-room computer
 - [x] Sketch
 - [x] Agree, autonomous implementation authorized
-- [ ] Implement
-- [ ] Scrap assessment
+- [x] Implement, transport and silent decoder laboratories verified
+- [x] Scrap assessment, no repeated architectural friction; design retained
 
 ## Arena
 
@@ -13,7 +13,7 @@
 - [x] Cross-judge, independent Astra high review
 - [x] Pick, A base with targeted C and B grafts
 - [x] Graft, contracts and implementation plan written
-- [ ] Verify
+- [x] Verify, independent tests and review complete
 
 ## Scope change
 

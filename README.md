@@ -32,7 +32,7 @@ Pour commencer, lire la [revue finale](docs/revue-finale.md) et les [décisions 
 | [Journal des décisions](docs/decisions.tsv) | Décisions datées et preuves locales |
 | [Passation P1](docs/passations/p1-cadrage.md) | Résultat remis au coordinateur avant P2 |
 
-P1 à P5 sont validées par le coordinateur. P5 a été relue par un nouvel agent GPT-6 Astra medium, puis contrôlée indépendamment par le coordinateur. La publication est une opération séparée. Les livrables documentaires ne sont pas des fonctionnalités disponibles.
+P1 à P5 sont validées par le coordinateur. P5 a été relue par un nouvel agent GPT-6 Astra medium, puis contrôlée indépendamment par le coordinateur. Le dossier est publié dans la [PR #1](https://github.com/pascalandy/kuro/pull/1), ouverte et non fusionnée. Le [reçu de publication](docs/publication.md) conserve les références et les contrôles rejouables. Les livrables documentaires ne sont pas des fonctionnalités disponibles.
 
 ## Statut du projet
 

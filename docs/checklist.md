@@ -110,7 +110,7 @@ Les étapes numérotées ci-dessous reprennent les intitulés ou extraits des é
 - [x] Relire les critères M1 dans tous les plans. Vérifier le NAS, le volume cible, les sources intactes et l'usage sans Internet.
 - [x] Vérifier les fichiers publiables. Exclure secrets, détails privés et médias réels.
 - [x] Relire la prose et le journal avant commit. Ne pas présenter une revue indépendante comme déjà effectuée.
-- [ ] Après revue, créer les commits documentaires selon la stratégie du coordinateur.
-- [ ] Publier la branche et créer la PR autorisées.
-- [ ] Vérifier le SHA distant, le contenu de la PR et les liens de publication.
-- [ ] Remettre le dossier, les décisions ouvertes et les limites de preuve. Arrêter le travail avant tout développement.
+- [x] Après revue, créer les commits documentaires selon la stratégie du coordinateur. Les phases validées sont publiées. Voir le [reçu](publication.md).
+- [x] Publier la branche et créer la PR autorisées. PR #1 ouverte et non draft, sans fusion. Voir le [reçu](publication.md).
+- [x] Vérifier le SHA distant, le contenu de la PR et les liens de publication. Références initiales concordantes et commande de contrôle du HEAD final dans le [reçu](publication.md).
+- [x] Préparer la remise publiée au coordinateur avec dossier, décisions ouvertes et limites de preuve. Le [reçu](publication.md) permet son contrôle avant le retour final au demandeur. Arrêt avant tout développement.

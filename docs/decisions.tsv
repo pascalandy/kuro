@@ -1,0 +1,8 @@
+ts	phase	decision	why	evidence	result
+2026-09-06T08:20:03Z	P1	Initialiser kuro sur main sans commit	Préparer un dépôt documentaire isolé avant la revue	docs/passations/p1-cadrage.md	git init réussi, aucun commit
+2026-09-06T08:20:03Z	P1	Fixer la cible M1 à 20 000 albums avec sources locales et NAS	Conserver les paramètres confirmés sans reporter le volume à M6	docs/contexte-utilisateur.md	MVP-02 et MVP-03 définis
+2026-09-06T08:20:03Z	P1	Conserver licence, formats et environnement comme décisions ouvertes	Aucune approbation ni mesure ne permet de les figer	docs/produit-et-mvp.md	O-01 à O-07 ouverts
+2026-09-06T08:20:03Z	P1	Adapter les playbooks au programme documentaire autorisé	Les prototypes, changements machine et autres modèles sont exclus	docs/checklist.md	Exceptions explicites, revue prose directe en remplacement de deslop absent
+2026-09-06T08:20:03Z	P1	Séquencer cinq phases avec un seul écrivain et revue avant dépendants	Chaque phase doit fournir une base vérifiable à la suivante	docs/programme.md	Passage P1 en attente de revue
+2026-09-06T08:20:30Z	P1	Vérifier les fichiers remis avant revue	Contrôler le résultat réel de P1 avant les dépendants	docs/passations/p1-cadrage.md	6 Markdown, 13 liens locaux, 5 lignes initiales TSV sans erreur; main sans commit; recherche secrets sans résultat
+2026-09-06T08:21:18Z	P1	Valider le passage P1 vers P2 après revue du coordinateur	La lecture des six Markdown et du journal et le contrôle indépendant satisfont les critères P1	docs/passations/p1-cadrage.md	Revue manager validée: 6 Markdown, 13 liens locaux, 6 décisions, 0 erreur; commits locaux autorisés

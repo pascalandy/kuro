@@ -1,41 +1,30 @@
 # kuro
 
-kuro est un projet de bibliothèque musicale et de lecture audio, destiné d'abord à Linux sur Omarchy. La cible initiale comprend des fichiers locaux et un dossier NAS, pour environ 20 000 albums et 3 To.
+kuro est un projet de bibliothèque musicale et de lecture audio destiné d'abord à Linux sur Omarchy. La cible initiale comprend des fichiers locaux et un dossier NAS, pour environ 20 000 albums et 3 To.
 
-Ce dépôt contient le dossier préparatoire. Aucun logiciel kuro n'existe dans ce dépôt. Le programme autorisé couvre les phases documentaires P1 à P5. Il s'arrête avant tout développement.
+Ce dépôt contient le cadrage du produit. Aucun logiciel kuro n'existe encore. Le cadrage fixe les usages et les preuves attendues avant le développement, sans choisir une stack ni attribuer une licence.
 
-Pour commencer, lire la [revue finale](docs/revue-finale.md) et les [décisions ouvertes](docs/decisions-ouvertes.md). La roadmap donne ensuite les six plans et les sept milestones futures.
-
-## Lire le dossier
+## Lire le cadrage courant
 
 | Document | Contenu |
 | --- | --- |
-| [Revue finale P5](docs/revue-finale.md) | Couverture des dix usages et dix critères MVP, constats et limites |
-| [Décisions ouvertes](docs/decisions-ouvertes.md) | Neuf arbitrages, responsables, informations manquantes et effet sur la suite |
-| [Passation P5](docs/passations/p5-revue.md) | Revue indépendante validée et contrôle complet rejouable |
-| [Contexte utilisateur](docs/contexte-utilisateur.md) | Demande confirmée, autorisations et informations manquantes |
-| [Programme](docs/programme.md) | Phases, critères de passage et définition de fin |
-| [Produit et MVP](docs/produit-et-mvp.md) | Usages, frontière du MVP et décisions ouvertes |
-| [Inventaire Roon](docs/inventaire-roon.md) | Couverture, méthode, contradictions et limites de preuve |
-| [Registre fonctionnel](docs/inventaire-fonctions.tsv) | Fonctions identifiées, sources et dispositions provisoires |
-| [Sources](docs/sources.md) | Corpus primaire daté et référence interne |
-| [Architecture proposée](docs/architecture.md) | Trois formes comparées, recommandation et contrats documentaires |
-| [Faisabilité](docs/faisabilite.md) | Composants, licences, fournisseurs, études futures et décisions ouvertes |
-| [Sources techniques](docs/sources-techniques.md) | Registre primaire TECH de P3, distinct des sources Roon |
-| [Roadmap](docs/roadmap.md) | Six plans, sept milestones et dépendances des 28 phases futures |
-| [Validation](docs/validation.md) | Corpus, mesures et 50 scénarios futurs avec cas fonctionnels conservés |
-| [Couverture](docs/couverture.tsv) | Traçabilité des 195 fonctions vers responsable, phase et scénario |
-| [Passation P4](docs/passations/p4-multiplan.md) | Plans validés et contrôle documentaire reproductible |
-| [Passation P3](docs/passations/p3-architecture.md) | Architecture validée et contrôles documentaires |
-| [Passation P2](docs/passations/p2-inventaire.md) | Inventaire validé et vérifications |
-| [Checklist](docs/checklist.md) | Progression et adaptation des playbooks au travail documentaire |
-| [Journal des décisions](docs/decisions.tsv) | Décisions datées et preuves locales |
-| [Passation P1](docs/passations/p1-cadrage.md) | Résultat remis au coordinateur avant P2 |
+| [Glossaire](CONTEXT.md) | Termes propres au cadrage |
+| [Cadrage courant](docs/cadrage-courant.md) | Usages et contrats retenus après deux entretiens |
+| [Roadmap](docs/roadmap.md) | Ordre des étapes et conditions de passage |
+| [Backlog](docs/backlog.md) | Usages différés et études avant adoption |
+| [Disposition des fonctions](docs/disposition-fonctions.tsv) | Disposition courante des 195 fonctions historiques |
+| [Validation](docs/validation.md) | Scénarios futurs et preuves attendues |
+| [Sources du cadrage](docs/sources-cadrage.md) | Sources externes consultées et limites de preuve |
+| [Carte Wayfinder](.scratch/cadrage-kuro/map.md) | Index des décisions prises pendant les entretiens |
 
-P1 à P5 sont validées par le coordinateur. P5 a été relue par un nouvel agent GPT-6 Astra medium, puis contrôlée indépendamment par le coordinateur. Le dossier est publié dans la [PR #1](https://github.com/pascalandy/kuro/pull/1), ouverte et non fusionnée. Le [reçu de publication](docs/publication.md) conserve les références et les contrôles rejouables. Les livrables documentaires ne sont pas des fonctionnalités disponibles.
+Les décisions détaillées vivent dans les tickets liés depuis la carte Wayfinder. Les identifiants `KD-*` relient les documents courants à ces décisions. Les identifiants `KB-*` désignent les questions du backlog. Les identifiants `KV-*` désignent les scénarios de validation.
+
+## Consulter le corpus initial
+
+Le [corpus P1 à P5 archivé](docs/archive/p1-p5/README.md) conserve le dossier préparatoire initial, ses hypothèses et ses preuves. Son [reçu de provenance](docs/archive/p1-p5-source.md) donne le commit source et la commande de contrôle.
+
+Ce corpus historique n'est plus le cadrage courant. Ses milestones M1 à M7, ses dispositions et ses scénarios restent inchangés dans l'archive. La roadmap courante utilise les identifiants U-M1 à U-M4.
 
 ## Statut du projet
 
-Le projet est destiné à devenir open source. Le choix de licence reste ouvert et aucune licence n'est attribuée par défaut.
-
-Roon fournit un corpus de comparaison documentaire. Aucune parité exhaustive n'est démontrée et Roon n'a pas été exécuté pendant ce cadrage. kuro ne suppose aucun accès à RAAT pour son MVP.
+Le produit reste à développer. Les études de licence, de stack, de formats, de matériel et de NAS précèdent les choix techniques concernés. Roon fournit un corpus de comparaison documentaire, sans objectif de parité et sans preuve du comportement futur de kuro.

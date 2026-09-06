@@ -1,0 +1,196 @@
+id_fonction	disposition_courante	etape	source_decision	reference_backlog	portee_courante	validation_courante
+F01-001	partiel	U-M1	KD-003;KD-023	KB-011	Paquets et rôles : Service et desktop sur la même machine; découpage interne à étudier	KV-001
+F01-002	engage	U-M1	KD-003		Serveur en arrière-plan : Service actif après fermeture de la fenêtre et arrêté par Quitter	KV-001
+F01-003	partiel	U-M1	KD-022	KB-004	Connexion au serveur : Contrôle local limité à l'utilisateur de la session; contrôle réseau différé	KV-012
+F01-004	differe	backlog	KD-007	KB-006	Autres desktops : Clients autres que Linux Omarchy sans engagement	
+F01-005	hors_portee	backlog	KD-005	KB-014	Déploiement serveur NAS : Le NAS fournit une source montée; kuro n'y déploie pas son service	
+F01-006	engage	U-M1	KD-023		Version des composants : Versions installées figées et identifiables	KV-001
+F01-007	differe	backlog	KD-023	KB-007	Mises à jour : Mise à jour automatique sans engagement	
+F01-008	partiel	U-M1	KD-030;KD-035	KB-020	Relocalisation du serveur : Restauration du format U-M1; migration ou relocalisation entre versions différée	KV-011
+F02-001	engage	U-M1	KD-001;KD-036		Source locale : Dossier local lu sans modifier ses fichiers	KV-002;KV-013
+F02-002	partiel	U-M1	KD-005	KB-014	Source NAS : Montage NAS déjà disponible; protocole et identifiants hors de kuro	KV-003
+F02-003	differe	backlog	KD-021	KB-016	Copie par glisser-déposer : Aucune copie de média par kuro	
+F02-004	partiel	U-M1	KD-016;KD-036	KB-002	Surveillance des changements : Changements trouvés par un scan pilotable; surveillance automatique différée	KV-002
+F02-005	engage	U-M1	KD-016;KD-036		Rescan manuel : Nouveau scan manuel, annulable et reprenable	KV-002
+F02-006	partiel	U-M1	KD-029	KB-016	Désactivation de source : Retrait explicite qui masque la source; réactivation automatique interdite	KV-003
+F02-007	partiel	U-M1	KD-028	KB-022	Modification du chemin : Relocalisation de racine avec chemins relatifs identiques seulement	KV-003
+F02-008	differe	backlog	KD-036	KB-016	Exclusions d’import : Règles d'exclusion configurables sans engagement	
+F02-009	partiel	U-M1	KD-014;KD-039	KB-012	Formats importables : Sous-ensemble garanti des formats PCM stéréo candidats; DSD exclu	KV-009
+F02-010	engage	U-M1	KD-036		Fichiers ignorés : Fichier invalide signalé sans bloquer le reste du scan	KV-002
+F02-011	engage	U-M1	KD-017;KD-033		Lecture des tags : Tags locaux lus avec replis explicites	KV-004
+F02-012	differe	backlog	KD-033	KB-016	Tags multivalués : Import spécialisé non requis par U-M1	
+F02-013	differe	backlog	KD-033	KB-016	Dates d’ajout : Import spécialisé non requis par U-M1	
+F02-014	differe	backlog	KD-033	KB-016	Playlists de fichiers : Import spécialisé non requis par U-M1	
+F02-015	differe	backlog	KD-033	KB-016	Import iTunes : Import spécialisé non requis par U-M1	
+F02-016	differe	backlog	KD-029	KB-016	Nettoyage explicite : Purge des références comme opération séparée à décider	
+F02-017	differe	backlog	KD-016;KD-036	KB-002	Analyse programmée : Analyse ou scan programmé sans engagement	
+F02-018	differe	backlog	KD-036	KB-016	Analyse à la demande : Analyse spécialisée à la demande sans engagement	
+F03-001	partiel	U-M1	KD-028;KD-033	KB-017	Identités des copies : Références et copies distinctes; organisation avancée différée	KV-004
+F03-002	differe	backlog	KD-028	KB-017	Identification enrichie : Identification enrichie ou manuelle sans engagement	
+F03-003	differe	backlog	KD-028	KB-017	Identification manuelle : Identification enrichie ou manuelle sans engagement	
+F03-004	differe	U-M3	KD-037	KB-024	Versions alternatives : Organisation volontaire des éditions et corrections internes à préciser après U-M1	
+F03-005	differe	U-M3	KD-037	KB-024	Version principale : Organisation volontaire des éditions et corrections internes à préciser après U-M1	
+F03-006	differe	backlog	KD-037	KB-017	Préférences de métadonnées : Métadonnée ou édition avancée au-delà de U-M3 limité	
+F03-007	differe	U-M3	KD-037	KB-024	Corrections par champ : Organisation volontaire des éditions et corrections internes à préciser après U-M1	
+F03-008	differe	backlog	KD-037	KB-017	Édition par lot : Métadonnée ou édition avancée au-delà de U-M3 limité	
+F03-009	differe	U-M3	KD-037	KB-024	Préservation des corrections : Organisation volontaire des éditions et corrections internes à préciser après U-M1	
+F03-010	differe	U-M3	KD-037	KB-024	Fusion d’albums : Organisation volontaire des éditions et corrections internes à préciser après U-M1	
+F03-011	differe	U-M3	KD-037	KB-024	Correction de structure : Organisation volontaire des éditions et corrections internes à préciser après U-M1	
+F03-012	differe	backlog	KD-037	KB-017	Masquage : Métadonnée ou édition avancée au-delà de U-M3 limité	
+F03-013	differe	backlog	KD-037	KB-017	Indicateurs de publication : Métadonnée ou édition avancée au-delà de U-M3 limité	
+F03-014	differe	backlog	KD-037	KB-017	Édition des illustrations : Métadonnée ou édition avancée au-delà de U-M3 limité	
+F03-015	differe	backlog	KD-037	KB-017	Réimport des informations : Métadonnée ou édition avancée au-delà de U-M3 limité	
+F03-016	differe	backlog	KD-037	KB-017	Crédits structurés : Métadonnée ou édition avancée au-delà de U-M3 limité	
+F03-017	differe	backlog	KD-037	KB-017	Édition des crédits : Métadonnée ou édition avancée au-delà de U-M3 limité	
+F03-018	differe	backlog	KD-037	KB-001	Œuvre et interprétation : Modèle classique avancé non requis	
+F03-019	differe	backlog	KD-037	KB-001	Mouvements : Modèle classique avancé non requis	
+F03-020	differe	backlog	KD-037	KB-001	Compositeurs : Modèle classique avancé non requis	
+F03-021	differe	backlog	KD-037	KB-017	Genres hiérarchiques : Métadonnée ou édition avancée au-delà de U-M3 limité	
+F03-022	differe	backlog	KD-037	KB-017	Personnalisation des genres : Métadonnée ou édition avancée au-delà de U-M3 limité	
+F03-023	differe	backlog	KD-037	KB-001	Descripteurs classiques : Modèle classique avancé non requis	
+F03-024	differe	backlog	KD-037	KB-017	Galerie et livrets : Métadonnée ou édition avancée au-delà de U-M3 limité	
+F04-001	engage	U-M1	KD-001;KD-033		Vue albums : Vue locale avec replis et ambiguïtés visibles	KV-004
+F04-002	engage	U-M1	KD-001;KD-033		Vue artistes : Vue locale avec replis et ambiguïtés visibles	KV-004
+F04-003	engage	U-M1	KD-001;KD-033		Vue pistes : Vue locale avec replis et ambiguïtés visibles	KV-004
+F04-004	engage	U-M1	KD-027		Recherche globale : Recherche album, piste et artiste sans casse ni accents	KV-005
+F04-005	differe	U-M2	KD-037	KB-023	Filtre de vue : Filtres locaux à préciser après l'usage de U-M1	
+F04-006	engage	U-M1	KD-027		Tri : Ordre alphabétique stable et ordre disque-piste déterministe	KV-004
+F04-007	differe	backlog	KD-040	KB-021	Colonnes personnalisées : Navigation ou personnalisation avancée sans engagement	
+F04-008	differe	U-M2	KD-037	KB-023	Focus : Filtres locaux à préciser après l'usage de U-M1	
+F04-009	differe	U-M2	KD-037	KB-023	Focus négatif : Filtres locaux à préciser après l'usage de U-M1	
+F04-010	partiel	U-M1	KD-040	KB-021	Navigation historique : Retour à la liste ou recherche avec place conservée; historique général différé	KV-005
+F04-011	differe	backlog	KD-037	KB-001	Vues classiques : Vues classiques avancées non requises	
+F04-012	partiel	U-M1	KD-028;KD-033	KB-017	Versions et emplacements : Source, copie et ambiguïté visibles; gestion avancée des versions différée	KV-004
+F04-013	differe	backlog	KD-040	KB-021	Sélection multiple : Navigation ou personnalisation avancée sans engagement	
+F04-014	differe	backlog	KD-040	KB-021	Navigation par dossiers : Navigation ou personnalisation avancée sans engagement	
+F04-015	partiel	U-M1	KD-002;KD-030	KB-017	Pochettes locales : Images de source en lecture seule et pochettes détenues restaurables; édition différée	KV-004;KV-011
+F05-001	engage	U-M1	KD-034		Création de playlist : Création, nom, renommage, suppression, ordre et doublons d'une playlist	KV-006
+F05-002	engage	U-M1	KD-034		Édition de playlist : Création, nom, renommage, suppression, ordre et doublons d'une playlist	KV-006
+F05-003	engage	U-M1	KD-034		Gestion de playlist : Création, nom, renommage, suppression, ordre et doublons d'une playlist	KV-006
+F05-004	engage	U-M1	KD-034		Doublons en playlist : Création, nom, renommage, suppression, ordre et doublons d'une playlist	KV-006
+F05-005	differe	backlog	KD-034;KD-037	KB-018	Dossiers de playlists : Organisation, historique, automatisation ou export au-delà des playlists U-M1	
+F05-006	differe	backlog	KD-034;KD-037	KB-018	Copie de playlist : Organisation, historique, automatisation ou export au-delà des playlists U-M1	
+F05-007	differe	U-M2	KD-037	KB-023	Favoris personnels : Favoris d'albums et de pistes après U-M1	
+F05-008	hors_portee	backlog	KD-024	KB-018	Profils : U-M1 sert une personne sur son compte local	
+F05-009	differe	backlog	KD-034;KD-037	KB-018	Historique personnel : Organisation, historique, automatisation ou export au-delà des playlists U-M1	
+F05-010	differe	backlog	KD-037	KB-017	Tags d’objets : Tags d'objets et import de tags sans engagement	
+F05-011	differe	backlog	KD-037	KB-017	Tags par lot : Tags d'objets et import de tags sans engagement	
+F05-012	differe	backlog	KD-037	KB-017	Portée des tags : Tags d'objets et import de tags sans engagement	
+F05-013	differe	backlog	KD-037	KB-017	Import des tags Roon : Tags d'objets et import de tags sans engagement	
+F05-014	differe	backlog	KD-034;KD-037	KB-018	Bookmarks : Organisation, historique, automatisation ou export au-delà des playlists U-M1	
+F05-015	differe	backlog	KD-034;KD-037	KB-018	Gestion des bookmarks : Organisation, historique, automatisation ou export au-delà des playlists U-M1	
+F05-016	differe	backlog	KD-034;KD-037	KB-018	Smart Playlists : Organisation, historique, automatisation ou export au-delà des playlists U-M1	
+F05-017	differe	backlog	KD-034;KD-037	KB-018	Règles Smart Playlists : Organisation, historique, automatisation ou export au-delà des playlists U-M1	
+F05-018	differe	backlog	KD-034;KD-037	KB-018	Bans : Organisation, historique, automatisation ou export au-delà des playlists U-M1	
+F05-019	differe	backlog	KD-034;KD-037	KB-018	Recherche des bans : Organisation, historique, automatisation ou export au-delà des playlists U-M1	
+F05-020	differe	backlog	KD-034;KD-037	KB-018	Dossiers favoris : Organisation, historique, automatisation ou export au-delà des playlists U-M1	
+F05-021	differe	backlog	KD-034;KD-037	KB-018	Export des médias : Organisation, historique, automatisation ou export au-delà des playlists U-M1	
+F05-022	differe	backlog	KD-034;KD-037	KB-018	Export M3U : Organisation, historique, automatisation ou export au-delà des playlists U-M1	
+F05-023	differe	backlog	KD-034;KD-037	KB-018	Export de catalogue : Organisation, historique, automatisation ou export au-delà des playlists U-M1	
+F06-001	engage	U-M1	KD-018;KD-034		Transport : Transport et file selon les effets précis de Lecture, Jouer ensuite et Ajouter	KV-007
+F06-002	engage	U-M1	KD-018;KD-034		Lecture d’une sélection : Transport et file selon les effets précis de Lecture, Jouer ensuite et Ajouter	KV-007
+F06-003	engage	U-M1	KD-018;KD-034		File visible : Transport et file selon les effets précis de Lecture, Jouer ensuite et Ajouter	KV-007
+F06-004	engage	U-M1	KD-018;KD-034		Réordre de file : Transport et file selon les effets précis de Lecture, Jouer ensuite et Ajouter	KV-007
+F06-005	engage	U-M1	KD-018;KD-034		Retrait de file : Transport et file selon les effets précis de Lecture, Jouer ensuite et Ajouter	KV-007
+F06-006	engage	U-M1	KD-018;KD-034		Vidage de file : Transport et file selon les effets précis de Lecture, Jouer ensuite et Ajouter	KV-007
+F06-007	differe	U-M2	KD-034	KB-018	Lecture aléatoire : Mélange et répétition candidats après U-M1	
+F06-008	differe	U-M2	KD-034	KB-018	Répétition : Mélange et répétition candidats après U-M1	
+F06-009	differe	backlog	KD-034	KB-018	Historique de session : Historique et conversion de file sans engagement	
+F06-010	differe	backlog	KD-034	KB-018	File vers playlist : Historique et conversion de file sans engagement	
+F06-011	differe	backlog	KD-034	KB-018	File vers tag ou export : Historique et conversion de file sans engagement	
+F06-012	differe	backlog	KD-039	KB-003	Fondu enchaîné : Fondu enchaîné hors audio U-M1	
+F06-013	engage	U-M1	KD-014;KD-039	KB-012	Gapless : Gapless exigé; corpus PCM homogène et seuil exacts fixés par l'étude	KV-009
+F06-014	engage	U-M1	KD-004;KD-012;KD-019		Position dans la piste : Déplacement temporel accessible et meilleur point restauré à l'arrêt	KV-010;KV-013
+F07-001	engage	U-M1	KD-039		Sortie locale : Sortie locale partagée avec le système	KV-008;KV-009
+F07-002	partiel	U-M1	KD-011;KD-039	KB-003	Activation de sortie : Sortie partagée active; perte arrêtée sans bascule	KV-008
+F07-003	etude	étude	KD-014;KD-039	KB-012	Identification de DAC : Capacités de la sortie à établir pour le corpus PCM stéréo	
+F07-004	differe	backlog	KD-039	KB-003	Mode exclusif : Contrôle ou diagnostic audio avancé hors U-M1	
+F07-005	differe	backlog	KD-039	KB-003	Volume matériel : Contrôle ou diagnostic audio avancé hors U-M1	
+F07-006	differe	backlog	KD-039	KB-003	Volume fixe : Contrôle ou diagnostic audio avancé hors U-M1	
+F07-007	differe	backlog	KD-039	KB-003	Volume logiciel : Contrôle ou diagnostic audio avancé hors U-M1	
+F07-008	hors_portee	backlog	KD-039	KB-003	Stratégie DSD : DSD, multicanal ou MQA hors du corpus U-M1	
+F07-009	etude	étude	KD-014;KD-039	KB-012	Limites de sortie : Capacités de la sortie à établir pour le corpus PCM stéréo	
+F07-010	hors_portee	backlog	KD-039	KB-003	Multicanal : DSD, multicanal ou MQA hors du corpus U-M1	
+F07-011	differe	backlog	KD-039	KB-003	Délai de resynchronisation : Contrôle ou diagnostic audio avancé hors U-M1	
+F07-012	differe	backlog	KD-039	KB-003	Signal Path : Contrôle ou diagnostic audio avancé hors U-M1	
+F07-013	hors_portee	backlog	KD-039	KB-003	Décodage MQA : DSD, multicanal ou MQA hors du corpus U-M1	
+F08-001	differe	backlog	KD-039	KB-003	Analyse de loudness : Traitement ou analyse audio hors U-M1	
+F08-002	differe	backlog	KD-039	KB-003	Forme d’onde et dynamique : Traitement ou analyse audio hors U-M1	
+F08-003	differe	backlog	KD-039	KB-003	Corruption audio : Traitement ou analyse audio hors U-M1	
+F08-004	differe	backlog	KD-039	KB-003	Normalisation de volume : Traitement ou analyse audio hors U-M1	
+F08-005	differe	backlog	KD-039	KB-003	Import ReplayGain : Traitement ou analyse audio hors U-M1	
+F08-006	differe	backlog	KD-039	KB-003	Chaîne MUSE : Traitement ou analyse audio hors U-M1	
+F08-007	differe	backlog	KD-039	KB-003	Ordre et bypass : Traitement ou analyse audio hors U-M1	
+F08-008	differe	backlog	KD-039	KB-003	Marge numérique : Traitement ou analyse audio hors U-M1	
+F08-009	differe	backlog	KD-039	KB-003	Conversion de fréquence : Traitement ou analyse audio hors U-M1	
+F08-010	differe	backlog	KD-039	KB-003	Conversion PCM vers DSD : Traitement ou analyse audio hors U-M1	
+F08-011	differe	backlog	KD-039	KB-003	Égaliseur paramétrique : Traitement ou analyse audio hors U-M1	
+F08-012	differe	backlog	KD-039	KB-003	Égaliseur procédural : Traitement ou analyse audio hors U-M1	
+F08-013	differe	backlog	KD-039	KB-003	Crossfeed : Traitement ou analyse audio hors U-M1	
+F08-014	differe	backlog	KD-039	KB-003	Convolution : Traitement ou analyse audio hors U-M1	
+F08-015	differe	backlog	KD-039	KB-003	Profils Audeze : Traitement ou analyse audio hors U-M1	
+F08-016	differe	backlog	KD-039	KB-003	Profils OPRA : Traitement ou analyse audio hors U-M1	
+F08-017	differe	backlog	KD-039	KB-003	Réglage des enceintes : Traitement ou analyse audio hors U-M1	
+F08-018	differe	backlog	KD-039	KB-003	Vitesse de traitement : Traitement ou analyse audio hors U-M1	
+F09-001	differe	backlog	KD-007;KD-031	KB-004	Contrôleurs multiples : Contrôle réseau, endpoint ou multiroom sans engagement	
+F09-002	differe	backlog	KD-007;KD-031	KB-004	Zones indépendantes : Contrôle réseau, endpoint ou multiroom sans engagement	
+F09-003	differe	backlog	KD-007;KD-031	KB-004	Transfert de lecture : Contrôle réseau, endpoint ou multiroom sans engagement	
+F09-004	differe	backlog	KD-007;KD-031	KB-004	Groupement de zones : Contrôle réseau, endpoint ou multiroom sans engagement	
+F09-005	differe	backlog	KD-007;KD-031	KB-004	Dissociation de groupe : Contrôle réseau, endpoint ou multiroom sans engagement	
+F09-006	differe	backlog	KD-007;KD-031	KB-004	Zones privées : Contrôle réseau, endpoint ou multiroom sans engagement	
+F09-007	differe	backlog	KD-007;KD-031	KB-004	Endpoint Bridge : Contrôle réseau, endpoint ou multiroom sans engagement	
+F09-008	hors_portee	backlog	KD-032	KB-004	Roon Ready et RAAT : Aucun accès RAAT supposé et aucune parité Roon	
+F09-009	differe	backlog	KD-007;KD-031	KB-004	Autres protocoles audio : Contrôle réseau, endpoint ou multiroom sans engagement	
+F09-010	differe	backlog	KD-007;KD-031	KB-004	Sonos et KEF : Contrôle réseau, endpoint ou multiroom sans engagement	
+F09-011	differe	backlog	KD-007;KD-031	KB-004	Chromecast : Contrôle réseau, endpoint ou multiroom sans engagement	
+F09-012	differe	backlog	KD-007;KD-031	KB-004	Commandes matérielles : Contrôle réseau, endpoint ou multiroom sans engagement	
+F09-013	differe	backlog	KD-007;KD-031	KB-004	Displays : Contrôle réseau, endpoint ou multiroom sans engagement	
+F09-014	differe	backlog	KD-007;KD-031	KB-004	HQPlayer : Contrôle réseau, endpoint ou multiroom sans engagement	
+F09-015	differe	backlog	KD-007;KD-031	KB-004	Devialet AIR : Contrôle réseau, endpoint ou multiroom sans engagement	
+F10-001	differe	backlog	KD-037	KB-019	Biographies et critiques : Contenu éditorial ou recommandation au-delà des favoris et filtres U-M2	
+F10-002	differe	backlog	KD-037	KB-019	Relations musicales : Contenu éditorial ou recommandation au-delà des favoris et filtres U-M2	
+F10-003	differe	backlog	KD-037	KB-019	Paroles statiques : Contenu éditorial ou recommandation au-delà des favoris et filtres U-M2	
+F10-004	differe	backlog	KD-037	KB-019	Paroles synchronisées : Contenu éditorial ou recommandation au-delà des favoris et filtres U-M2	
+F10-005	differe	backlog	KD-037	KB-019	Discover : Contenu éditorial ou recommandation au-delà des favoris et filtres U-M2	
+F10-006	differe	backlog	KD-037	KB-019	Daily Picks : Contenu éditorial ou recommandation au-delà des favoris et filtres U-M2	
+F10-007	differe	backlog	KD-037	KB-019	Listen Later : Contenu éditorial ou recommandation au-delà des favoris et filtres U-M2	
+F10-008	differe	backlog	KD-037	KB-019	Suivi Listen Later : Contenu éditorial ou recommandation au-delà des favoris et filtres U-M2	
+F10-009	differe	backlog	KD-037	KB-019	Roon Radio : Contenu éditorial ou recommandation au-delà des favoris et filtres U-M2	
+F10-010	differe	backlog	KD-037	KB-019	Réglages Radio : Contenu éditorial ou recommandation au-delà des favoris et filtres U-M2	
+F11-001	differe	backlog	KD-007;KD-025	KB-005	TIDAL : Service, synchronisation ou API externe sans engagement	
+F11-002	differe	backlog	KD-007;KD-025	KB-005	Qobuz : Service, synchronisation ou API externe sans engagement	
+F11-003	differe	backlog	KD-007;KD-025	KB-005	KKBOX : Service, synchronisation ou API externe sans engagement	
+F11-004	differe	backlog	KD-007;KD-025	KB-005	nugs : Service, synchronisation ou API externe sans engagement	
+F11-005	differe	backlog	KD-007;KD-025	KB-005	Préférences streaming : Service, synchronisation ou API externe sans engagement	
+F11-006	differe	backlog	KD-007;KD-025	KB-005	Synchronisation de playlists : Service, synchronisation ou API externe sans engagement	
+F11-007	differe	backlog	KD-007;KD-025	KB-005	Matching de playlists : Service, synchronisation ou API externe sans engagement	
+F11-008	differe	backlog	KD-007;KD-025	KB-005	Live Radio : Service, synchronisation ou API externe sans engagement	
+F11-009	differe	backlog	KD-007;KD-025	KB-005	Stations personnalisées : Service, synchronisation ou API externe sans engagement	
+F11-010	differe	backlog	KD-007;KD-025	KB-005	Scrobbling : Service, synchronisation ou API externe sans engagement	
+F11-011	differe	backlog	KD-007;KD-025	KB-005	API d’extensions : Service, synchronisation ou API externe sans engagement	
+F11-012	differe	backlog	KD-007;KD-025	KB-005	Partage : Service, synchronisation ou API externe sans engagement	
+F12-001	engage	U-M1	KD-006;KD-030		Sauvegarde immédiate : Snapshot manuel cohérent des données durables et métadonnées connues	KV-011
+F12-002	differe	backlog	KD-030	KB-020	Sauvegarde planifiée : Planification et historique de sauvegardes non requis	
+F12-003	engage	U-M1	KD-030;KD-035		Restauration : Remplacement confirmé, compatible et récupérable en cas d'échec	KV-011
+F12-004	engage	U-M1	KD-022		Journaux de diagnostic : Journaux expurgés avec aperçu avant export	KV-012
+F12-005	partiel	U-M1	KD-019;KD-040	KB-008	Raccourcis desktop : Commandes clavier accessibles; intégration MPRIS différée	KV-013
+F12-006	differe	backlog	KD-019	KB-021	Infobulles : Infobulles non imposées par le socle d'accessibilité	
+F12-007	partiel	U-M1	KD-040	KB-021	Now Playing : Piste courante et commandes visibles; plein écran différé	KV-005
+F12-008	engage	U-M1	KD-004;KD-012		Persistance M1 : File, position, playlists et préférences durables	KV-006;KV-010;KV-011
+F12-009	engage	U-M1	KD-001;KD-015	KB-013	Bibliothèque cible : Environ 20 000 albums et 3 To; mesures requises sur la cible connue	KV-013
+F12-010	engage	U-M1	KD-019		Accessibilité desktop : Clavier, focus, libellés, zoom et déplacement dans la piste	KV-013
+F12-011	partiel	U-M1	KD-004;KD-035	KB-020	Reprise après incident : Reprise U-M1 et restauration échouée récupérable; migrations futures différées	KV-010;KV-011
+F12-012	differe	U-M2	KD-019	KB-008	Touches média et bureau : Touches média et MPRIS comme confort indépendant	
+F12-013	engage	U-M1	KD-010;KD-011;KD-039		Interruptions audio : Erreur de média ou perte de sortie bornée sans reprise automatique	KV-008
+F13-001	engage	U-M1	KD-009;KD-024		Usage sans Internet : Toutes les fonctions U-M1 sans Internet après installation	KV-012
+F13-002	engage	U-M1	KD-021		Sources intactes : Médias et images de source jamais modifiés ou supprimés	KV-013
+F13-003	engage	U-M1	KD-010;KD-029		NAS absent : Références conservées et aucune reprise lors du retour du NAS	KV-003;KV-008
+F13-004	engage	U-M1	KD-006;KD-022		Protection des secrets : Secrets exclus des sauvegardes et des diagnostics exportés	KV-011;KV-012
+F13-005	engage	U-M1	KD-022		Accès des contrôleurs : Contrôle limité à l'utilisateur local de la session	KV-012
+F14-001	etude	étude	KD-025;KD-038	KB-010	Licence du projet : Licence du code et des dépendances à décider sur l'artefact exact	
+F14-002	engage	U-M1	KD-023	KB-015	Construction reproductible : Construction reproductible exigée; environnement exact fixé par l'étude	KV-001
+F14-003	differe	backlog	KD-025	KB-005	Droits des données fournisseurs : Droits examinés seulement pour chaque fournisseur candidat	
+F14-004	etude	étude	KD-025;KD-038	KB-010	Licences des dépendances : Licence du code et des dépendances à décider sur l'artefact exact	
+F15-001	differe	U-M4	KD-031	KB-009	Client ARC distant : Question séparée de l'étude mobile; aucune fonction engagée	
+F15-002	differe	U-M4	KD-031	KB-009	Téléchargements locaux : Question séparée de l'étude mobile; aucune fonction engagée	
+F15-003	differe	U-M4	KD-031	KB-009	Smart Downloads : Question séparée de l'étude mobile; aucune fonction engagée	

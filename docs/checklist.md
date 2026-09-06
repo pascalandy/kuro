@@ -96,7 +96,9 @@ Les étapes numérotées ci-dessous reprennent les intitulés ou extraits des é
 - [x] Rédiger P3 avec trois formes, contrats, composants, fournisseurs, licences et études futures.
 - [x] Vérifier les références P3 et préserver les critères et le registre P1-P2. Voir la [passation P3](passations/p3-architecture.md).
 - [x] Faire valider P3 par le coordinateur avant P4. Revue consignée dans la passation P3 et le journal.
-- [ ] Rédiger puis faire valider P4 avec six plans, sept milestones et validations.
+- [x] Rédiger P4 avec six plans, sept milestones, 28 phases et 50 scénarios futurs. Voir la [roadmap](roadmap.md).
+- [x] Vérifier les 195 correspondances uniques, cas spécifiques conservés, liens et dépendances sans cycle. Commande dans la [passation P4](passations/p4-multiplan.md).
+- [x] Faire valider P4 par le coordinateur avant P5 ou commit. Revue intégrale et autorisation de commit local consignées dans la passation P4 et le journal.
 - [ ] Rédiger puis faire valider P5 avec couverture et cohérence.
 
 ## Vérifier les fichiers et publier

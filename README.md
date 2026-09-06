@@ -17,13 +17,17 @@ Ce dépôt contient le dossier préparatoire. Aucun logiciel kuro n'existe dans 
 | [Architecture proposée](docs/architecture.md) | Trois formes comparées, recommandation et contrats documentaires |
 | [Faisabilité](docs/faisabilite.md) | Composants, licences, fournisseurs, études futures et décisions ouvertes |
 | [Sources techniques](docs/sources-techniques.md) | Registre primaire TECH de P3, distinct des sources Roon |
+| [Roadmap](docs/roadmap.md) | Six plans, sept milestones et dépendances des 28 phases futures |
+| [Validation](docs/validation.md) | Corpus, mesures et 50 scénarios futurs avec cas fonctionnels conservés |
+| [Couverture](docs/couverture.tsv) | Traçabilité des 195 fonctions vers responsable, phase et scénario |
+| [Passation P4](docs/passations/p4-multiplan.md) | Plans validés et contrôle documentaire reproductible |
 | [Passation P3](docs/passations/p3-architecture.md) | Architecture validée et contrôles documentaires |
 | [Passation P2](docs/passations/p2-inventaire.md) | Inventaire validé et vérifications |
 | [Checklist](docs/checklist.md) | Progression et adaptation des playbooks au travail documentaire |
 | [Journal des décisions](docs/decisions.tsv) | Décisions datées et preuves locales |
 | [Passation P1](docs/passations/p1-cadrage.md) | Résultat remis au coordinateur avant P2 |
 
-P1, P2 et P3 sont validées par le coordinateur. P4 est la prochaine phase. P4 et P5 restent à produire après validation des phases précédentes. Les futurs livrables ne sont pas des fonctionnalités disponibles.
+P1, P2, P3 et P4 sont validées par le coordinateur. P5 reste à produire pour la revue finale de couverture et de cohérence. Les livrables documentaires ne sont pas des fonctionnalités disponibles.
 
 ## Statut du projet
 

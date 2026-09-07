@@ -1,6 +1,6 @@
 # Architecture retenue pour le démarrage audio
 
-Ce document présente l'architecture courante à étudier après les laboratoires du kickoff. Les rapports de l'arena conservent leur décision historique sur un service, un agent salon et MPD. Cette décision ne fixe plus le nombre de machines, le moteur de production ou la limite entre KuroKor et un éventuel point de lecture distant. KD-044, KD-045.
+Ce document présente l'architecture courante à étudier après les laboratoires du kickoff. Les rapports de l'arena conservent leur décision historique sur un service, un agent salon et MPD. Cette décision ne fixe plus le nombre de machines, le moteur de production ou la limite entre KuroKor et un point de lecture. KD-046.
 
 ## Usage avant les types
 
@@ -13,13 +13,13 @@ session.control(pause, revision=current_revision)
 view = session.snapshot()
 ```
 
-Ces appels sont une esquisse produit. Le Kuro Client ne prépare ni URL, ni transaction, ni commande de moteur. Il ne décode pas, ne produit pas le son et ne transporte pas de PCM. Les occurrences distinguent les deux ajouts de la même piste. La fenêtre garde les commandes de lecture visibles et retrouve la position de liste au retour d'un album. Fermer la fenêtre conserve KuroKor. Quitter l'arrête après arrêt de la sortie. Un redémarrage restaure la file et la meilleure position enregistrée, sans son.
+Ces appels sont une esquisse produit. Le rôle de contrôle du Kuro Client ne prépare ni URL, ni transaction, ni commande de moteur. Son application ou son processus peut aussi porter la lecture locale si l'architecture retenue le permet. Les occurrences distinguent les deux ajouts de la même piste. La fenêtre garde les commandes de lecture visibles et retrouve la position de liste au retour d'un album. Fermer la fenêtre conserve KuroKor. Quitter l'arrête après arrêt de la sortie. Un redémarrage restaure la file et la meilleure position enregistrée, sans son.
 
 ## Problème
 
 Le [besoin amendé](scope-addendum.md) distingue KuroKor, les Kuro Clients et la bibliothèque musicale sur le NAS. KuroKor possède l'état durable et coordonne la lecture. Les Kuro Clients contrôlent KuroKor et affichent son état. Le NAS conserve les fichiers musicaux maîtres. Le nombre de machines dépend du [scénario de déploiement](../scenarios-deploiement.md). L'Aurender avec fichiers locaux est la référence à remplacer. Son protocole n'est pas une dépendance. Les modèles exacts et les domaines d'horloge du DDC et du DAC restent à identifier.
 
-La priorité sonore exige des frontières observables. Kuro doit posséder ses tampons PCM et sa sortie audio. La place de cette responsabilité reste à définir lorsque le point de lecture est distant. Les protections de bibliothèque et de sauvegarde restent requises malgré le changement de trajet.
+La priorité sonore exige des frontières observables. Kuro possède les parties audio qu'il implémente. Le protocole et la destination déterminent où se trouvent le décodage, les tampons et la sortie. Kuro ne possède pas nécessairement les tampons internes d'un appareil tiers. Les protections de bibliothèque et de sauvegarde restent requises malgré le changement de trajet.
 
 ## Rôles et première cible
 
@@ -37,7 +37,7 @@ consultés en lecture seule        │
                          USB → DDC → I2S → DAC
 ```
 
-Ce diagramme décrit la [première cible dans le salon](../scenarios-deploiement.md#scénario-2-première-cible-dans-le-salon). KuroKor et le moteur audio partagent alors la machine reliée au DDC. Le Kuro Client peut partager cette machine ou fonctionner à distance. Dans le scénario où KuroKor et le Kuro Client occupent deux ordinateurs, l'emplacement du point de lecture reste ouvert. Le Kuro Client ne devient jamais le point de lecture par défaut.
+Ce diagramme décrit la [lecture locale sur l'hôte de KuroKor](../scenarios-deploiement.md#scénario-2-lecture-locale-sur-lhôte-de-kurokor). KuroKor et le moteur audio partagent alors la machine reliée au DDC. Deux autres destinations sont admises. L'ordinateur qui héberge le Kuro Client peut produire le son envoyé par KuroKor. Un appareil réseau supplémentaire peut aussi être étudié. KD-046.
 
 ## Candidat proposé pendant le kickoff
 
@@ -45,11 +45,11 @@ L'arena a proposé un agent salon avec un MPD privé. Cet agent adapterait une f
 
 Le laboratoire compare récupération progressive et préparation locale complète. Cette seconde politique est un comparateur de première classe face à la référence Aurender. Ni sa supériorité sonore ni son adoption par défaut ne sont décidées. Le même transfert et ses traces permettent de comparer attente initiale et manque de données dans un modèle déclaré.
 
-Le Kuro Client n'apprend ni la représentation des médias, ni la file interne du moteur. Les [contrats](contracts.md) décrivent encore le candidat MPD pour conserver la preuve du kickoff. Ils marquent les limites que l'étude de KuroKor doit réévaluer.
+Le rôle de contrôle du Kuro Client n'a pas à connaître la représentation des médias ou la file interne du moteur. La lecture sur le même hôte peut rester dans la même application ou le même processus. Les [contrats](contracts.md) décrivent encore le candidat MPD pour conserver la preuve du kickoff. Ils marquent les limites que l'étude doit réévaluer.
 
 Go reste le langage du laboratoire de transport. Son travail sur HTTP avec plages, fichiers, SHA-256, processus et tests reste valide, notamment l'usage de [`http.ServeContent`](https://pkg.go.dev/net/http#ServeContent). Cette preuve ne choisit pas le langage du produit.
 
-L'étude de KuroKor évalue Rust en priorité, car Kuro doit posséder les tampons PCM et la sortie audio. Elle compare les mêmes responsabilités, budgets mémoire, coûts réseau et contraintes de maintenance avant toute adoption. Aucun portage du laboratoire Go n'est demandé et aucun avantage sonore n'est attribué au langage. KD-045.
+L'étude évalue Rust en priorité pour les parties audio possédées par Kuro. Elle compare les mêmes responsabilités, budgets mémoire, coûts réseau et contraintes de maintenance avant toute adoption. Cette priorité ne s'applique pas au matériel ou au logiciel interne d'un streamer tiers. Aucun portage du laboratoire Go n'est demandé et aucun avantage sonore n'est attribué au langage. KD-046.
 
 MPD est le moteur déjà éprouvé pour comparaison. Son [protocole](https://mpd.readthedocs.io/en/stable/protocol.html) permet les fichiers locaux, les URL, la file et l'observation de lecture. Ses paramètres ne prouvent pas le format effectivement livré. Son [manuel](https://mpd.readthedocs.io/en/stable/user.html#bit-perfect-playback) décrit des conversions possibles lorsque le matériel refuse un format. Toute comparaison future doit relever la configuration, les traitements, les journaux et le format ALSA réel. Une capture FIFO silencieuse ne remplace pas cette preuve USB.
 
@@ -57,7 +57,7 @@ La livraison réseau détermine la disponibilité des données. Le timer du labo
 
 ## Décision de synthèse
 
-La [synthèse de l'arena](synthesis.md) a retenu A pour la propriété durable centralisée et MPD éphémère. Elle a ajouté la préparation vérifiée et ses erreurs depuis C, ainsi que le PCM canonique et les générations depuis B. Elle a rejeté la restauration distribuée et le transport PCM spécifique. Ce résultat historique reste intact. KD-044 et KD-045 rouvrent le moteur, le langage de production, la limite locale ou distante du moteur audio et le nombre de machines.
+La [synthèse de l'arena](synthesis.md) a retenu A pour la propriété durable centralisée et MPD éphémère. Elle a ajouté la préparation vérifiée et ses erreurs depuis C, ainsi que le PCM canonique et les générations depuis B. Elle a rejeté la restauration distribuée et le transport PCM spécifique. Ce résultat historique reste intact. KD-046 retient trois destinations sans choisir le moteur, le langage de production, le format transporté ou les limites de processus.
 
 ## Compromis proposés dans le candidat MPD
 
@@ -74,10 +74,10 @@ La recherche initiale [recommandait Rust et une préparation complète](research
 
 ## Questions et risques ouverts
 
-Quels formats et transitions passent sur le moteur et le DDC réels sans conversion inexpliquée ? Quel délai de départ et quel budget courant ou suivant conviennent au corpus cible ? Comment KuroKor se comporte-t-il sous import et recherche simultanés ? Où vit le point de lecture du scénario séparé ? Les essais locaux, préparés et progressifs donnent-ils une différence physique ou d'écoute reproductible avec moteur et connexions constants ?
+Quels formats et transitions passent sur le moteur et le DDC réels sans conversion inexpliquée ? Quel délai de départ et quel budget courant ou suivant conviennent au corpus cible ? Comment KuroKor se comporte-t-il sous import et recherche simultanés ? Quel protocole convient à chaque destination ? Les essais locaux, préparés et progressifs donnent-ils une différence physique ou d'écoute reproductible avec moteur et connexions constants ? La compatibilité des streamers et la capacité d'un ordinateur peu puissant restent à mesurer.
 
 La licence livrée, l'installation propre, le NAS réel, le corpus garanti, le gapless, la restauration et l'acceptation produit restent ouverts. Le laboratoire ne les remplace pas.
 
 ## Prochaine étude
 
-Conserver le [laboratoire Go](implementation-plan.md) comme référence reproductible. Comparer ensuite les limites du moteur audio, dont Rust en priorité, sur les deux scénarios de déploiement avant de choisir le langage ou le moteur de production.
+Conserver le [laboratoire Go](implementation-plan.md) comme référence reproductible. Comparer ensuite les limites des parties audio possédées par Kuro, dont Rust en priorité, sur les trois destinations avant de choisir le langage, le moteur ou le protocole de production.

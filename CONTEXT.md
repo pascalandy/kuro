@@ -9,7 +9,7 @@ Le rôle logique central de kuro qui détient l'état de Kuro et coordonne la le
 _Avoid_: Kuro Core, serveur audio
 
 **Kuro Client**:
-Le rôle logique de contrôle qui transmet les intentions de l'utilisateur à KuroKor et présente l'état reçu. Les Kuro Clients ne décodent pas les médias, ne transportent pas le PCM et ne produisent pas la sortie audio.
+Le rôle logique de contrôle qui transmet les intentions de l'utilisateur à KuroKor et présente l'état reçu. Son hôte peut aussi fournir la lecture locale, sans imposer une application ou un processus distinct.
 _Avoid_: KuroClient, renderer, point de lecture
 
 **Rôle logique**:
@@ -61,27 +61,27 @@ Une copie reconstructible d'un média du NAS, conservée par kuro pour préparer
 _Avoid_: Média maître, sauvegarde
 
 **Moteur audio**:
-Le rôle logique de kuro qui décode les médias, maintient les tampons PCM de lecture et livre l'audio au point de lecture. Ce terme ne désigne ni un produit séparé ni un hôte physique imposé.
+La responsabilité logique qui transforme une représentation du média en son au point de lecture. Sa répartition dépend de la destination et ne désigne ni un produit séparé ni un hôte physique imposé.
 _Avoid_: Kuro Client, lecteur externe
 
 **Tampon PCM de lecture**:
-Les échantillons décodés que le moteur audio tient prêts pour la sortie. Un tampon PCM est transitoire et ne remplace ni le média du NAS ni le cache audio.
+Les échantillons décodés qu'une partie du chemin média tient prêts pour la sortie. Un tampon PCM est transitoire et ne remplace ni le média du NAS ni le cache audio.
 _Avoid_: Cache audio, fichier maître
 
 **Point de lecture**:
-L'emplacement physique où kuro remet effectivement l'audio à la chaîne de sortie, par exemple au DDC et au DAC. Le point de lecture est distinct du Kuro Client même lorsque leurs rôles partagent un hôte.
+L'hôte ou l'appareil qui remet l'audio à la chaîne de sortie. Il peut s'agir de l'hôte de KuroKor, de l'hôte d'un Kuro Client ou d'un appareil réseau distinct.
 _Avoid_: Contrôleur, Kuro Client
 
 **Point de lecture réseau**:
-Un point de lecture qui reçoit l'audio par le réseau, par exemple au moyen d'UPnP, puis alimente sa sortie locale.
+Un point de lecture qui reçoit par le réseau une représentation du média adaptée au protocole, puis alimente sa sortie locale.
 _Avoid_: Kuro Client, multiroom
 
 **Chemin de contrôle**:
-Le trajet des intentions de l'utilisateur et de l'état entre un Kuro Client et KuroKor. Ce chemin ne transporte pas les médias ni le PCM.
+Le trajet logique des intentions de l'utilisateur et de l'état entre un Kuro Client et KuroKor. Il reste distinct du chemin média même lorsque les deux partagent un hôte, une application ou un processus.
 _Avoid_: Chemin média
 
 **Chemin média**:
-Le trajet de l'audio depuis le NAS, par le moteur audio, jusqu'au point de lecture et à la chaîne de sortie. Il reste distinct du chemin de contrôle.
+Le trajet logique du média depuis le NAS jusqu'au point de lecture et à la chaîne de sortie. Selon la destination et le protocole, il transporte un fichier, un flux encodé ou du PCM, et répartit autrement le décodage, les tampons et la sortie.
 _Avoid_: Chemin de contrôle
 
 **Bit-perfect**:

@@ -1,6 +1,6 @@
 # Contrats de conception et limite du laboratoire
 
-Ce document sépare l'esquisse du produit et l'outil construit pendant le démarrage. Les signatures produit sont du pseudocode non implémenté. Elles conservent le candidat MPD du kickoff afin de rendre ses limites examinables. L'étude de KuroKor doit réévaluer la propriété du moteur et la limite locale ou distante avant toute implémentation produit. Le contrat Go exact du laboratoire vit dans [le plan d'implémentation](implementation-plan.md). KD-044, KD-045.
+Ce document sépare l'esquisse du produit et l'outil construit pendant le démarrage. Les signatures produit sont du pseudocode non implémenté. Elles conservent le candidat MPD du kickoff afin de rendre ses limites examinables. L'étude doit réévaluer le moteur et le chemin média de chaque destination avant toute implémentation produit. Le contrat Go exact du laboratoire vit dans [le plan d'implémentation](implementation-plan.md). KD-046.
 
 ## Esquisse produit et rôles logiques
 
@@ -8,11 +8,11 @@ Ce document sépare l'esquisse du produit et l'outil construit pendant le démar
 | --- | --- | --- |
 | KuroKor | Sources, références, métadonnées, playlists, occurrences de file, meilleur point enregistré, préférences et pochettes détenues | Préparations, sessions, erreurs, autorisations média et coordination de lecture |
 | NAS | Fichiers musicaux maîtres | Accès aux médias en lecture seule; aucun second catalogue faisant autorité |
-| Kuro Client | Préférences locales de présentation, si elles existent | Intentions de l'utilisateur, contexte de navigation et état reçu de KuroKor |
-| Moteur audio à étudier | Aucune autorité durable distincte | Décodage, tampons PCM et sortie audio possédés par Kuro; hébergement local ou distant à fixer |
+| Kuro Client | Préférences locales de présentation, si elles existent | Intentions de l'utilisateur, contexte de navigation et état reçu de KuroKor; son hôte peut aussi fournir la lecture locale |
+| Moteur audio à étudier | Aucune autorité durable distincte | Lecture possédée par Kuro sur ses propres composants; décodage, tampons et sortie répartis selon la destination et le protocole |
 | MPD de référence | Aucune reprise de file faisant autorité | File courte, décodeur et tampons observés seulement dans le candidat du kickoff |
 
-Le tableau attribue l'autorité logique. Il ne fixe pas le support physique des données applicatives ou des sauvegardes. KuroKor ne modifie pas les fichiers musicaux maîtres. Un stockage NAS distinct pourrait être étudié pour les données applicatives ou les sauvegardes sans déplacer l'autorité logique.
+Le tableau attribue l'autorité logique. Il ne fixe ni les limites d'une application ou d'un processus, ni le support physique des données applicatives ou des sauvegardes. KuroKor ne modifie pas les fichiers musicaux maîtres. Un stockage NAS distinct pourrait être étudié pour les données applicatives ou les sauvegardes sans déplacer l'autorité logique.
 
 L'état matériel du DDC et du DAC reste externe. Le rôle réel de leurs horloges est inconnu avant inventaire. Les réglages logiciels, les données observées et les inconnues ont des statuts distincts.
 
@@ -39,7 +39,7 @@ Session.control(play | pause | stop | seek | previous | next | quit,
                 revision, operation) -> SessionView | error
 Session.snapshot() -> SessionView
 
-# Frontière privée, aucun Kuro Client n'appelle ces étapes.
+# Frontière privée du rôle de contrôle. La lecture sur le même hôte peut l'implémenter.
 PlaybackPoint.prepare(plan, generation) -> preparation | error
 PlaybackPoint.activate(preparation, generation) -> observation | error
 PlaybackPoint.observe() -> observation
@@ -66,7 +66,7 @@ La production doit garantir une version cohérente pendant une reprise de fichie
 
 La perte du service média et celle du contrôle sont deux événements. Un fichier complet peut rester lisible si seul le service média tombe. La perte du contrôle arrête après expiration d'un délai mesuré, même avec des fichiers prêts. Retour du réseau, retour du périphérique et redémarrage restent arrêtés. Un essai sans aucun trafic réseau est un mode de laboratoire distinct.
 
-Dans le candidat du kickoff, l'agent est le seul client du MPD privé. Sa supervision doit arrêter MPD si l'agent meurt. Cette règle reste une hypothèse à comparer avec un moteur audio possédé par Kuro. La fermeture de fenêtre laisse KuroKor actif. Quitter attend l'arrêt ou en rapporte l'incertitude. Le mécanisme réseau authentifié et son délai restent à éprouver lorsque le point de lecture est distant. Le Kuro Client n'est jamais ce transport audio.
+Dans le candidat du kickoff, l'agent est le seul client du MPD privé. Sa supervision doit arrêter MPD si l'agent meurt. Cette règle reste une hypothèse à comparer avec un moteur audio possédé par Kuro. La fermeture de fenêtre laisse KuroKor actif. Quitter attend l'arrêt ou en rapporte l'incertitude. Le mécanisme réseau authentifié et son délai restent à éprouver lorsque le point de lecture est distant. Le rôle de contrôle du Kuro Client ne définit pas le transport audio. La même application ou le même processus peut toutefois porter la lecture sur cet hôte.
 
 KuroKor dirige la sauvegarde des données durables et des pochettes détenues sans dépendre d'un snapshot du point de lecture. Le support physique de la sauvegarde reste à choisir. Les caches et secrets restent exclus. La restauration conserve une génération précédente récupérable et invalide toute autorisation de lecture antérieure. La preuve de restauration demeure un lot produit futur.
 

@@ -17,6 +17,8 @@ Le worker `align_role_docs` réclame ce ticket avant de modifier les documents c
 
 ## Answer
 
+Cette réponse reste le dossier historique de KD-044 et KD-045. KD-046, dans le [ticket 07](07-preciser-les-destinations-de-lecture.md), résout l'emplacement resté ouvert et précise la portée des formulations absolues sur le Kuro Client, le PCM et la possession des tampons.
+
 Les décisions suivantes viennent des précisions directes de l'utilisateur du 6 septembre 2026. Elles remplacent l'interprétation selon laquelle le chemin audio imposait toujours un serveur et un renderer sur deux machines distinctes. Elles ne constituent aucun résultat technique ou sonore.
 
 ### KD-044. Séparer les rôles logiques de leur hébergement

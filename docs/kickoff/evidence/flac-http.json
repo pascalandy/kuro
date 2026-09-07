@@ -1,0 +1,50 @@
+[
+  {
+    "method": "GET",
+    "path": "/track-1.flac",
+    "request_headers": {
+      "Accept-Encoding": "identity",
+      "Host": "127.0.0.1:43493",
+      "User-Agent": "Python-urllib/3.14",
+      "Connection": "close"
+    },
+    "status": 200,
+    "bytes_sent": 27951
+  },
+  {
+    "method": "GET",
+    "path": "/track-2.flac",
+    "request_headers": {
+      "Accept-Encoding": "identity",
+      "Host": "127.0.0.1:43493",
+      "User-Agent": "Python-urllib/3.14",
+      "Connection": "close"
+    },
+    "status": 200,
+    "bytes_sent": 30972
+  },
+  {
+    "method": "GET",
+    "path": "/track-1.flac",
+    "request_headers": {
+      "Host": "127.0.0.1:43493",
+      "User-Agent": "Music Player Daemon 0.24.15",
+      "Accept": "*/*",
+      "Icy-Metadata": "1"
+    },
+    "status": 200,
+    "bytes_sent": 27951
+  },
+  {
+    "method": "GET",
+    "path": "/track-2.flac",
+    "request_headers": {
+      "Host": "127.0.0.1:43493",
+      "User-Agent": "Music Player Daemon 0.24.15",
+      "Accept": "*/*",
+      "Icy-Metadata": "1"
+    },
+    "status": 200,
+    "bytes_sent": 30972
+  }
+]

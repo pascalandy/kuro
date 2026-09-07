@@ -1,0 +1,70 @@
+{
+  "passed": true,
+  "python_version": "3.14.7 (main, Aug 10 2026, 07:46:56) [GCC 16.1.1 20260728]",
+  "scope": "Go transported WAV. A separate Python loopback HTTP origin transports generated FLAC for verified receive/decode and direct MPD HTTP playback. FIFO captures test ordered PCM bytes only; no progressive timing, ALSA, USB, DDC, DAC, jitter or sound-quality proof.",
+  "flac": [
+    {
+      "bytes": 96000,
+      "frames": 24000,
+      "pcm_sha256": "35c6b13f7b289b2152f452dad77f5f2ae4d56e068ac236cb5e4b44c850fdac23",
+      "flac_sha256": "3476d0e501fc5bdbb8e9cef8da03a2e0ff2fbd9ef7af028f5de82a5b886946da",
+      "http": {
+        "url": "http://127.0.0.1:43493/track-1.flac",
+        "status": 200,
+        "headers": {
+          "Server": "BaseHTTP/0.6 Python/3.14.7",
+          "Date": "Sun, 06 Sep 2026 18:33:01 GMT",
+          "Content-Type": "audio/flac",
+          "Content-Length": "27951",
+          "ETag": "\"3476d0e501fc5bdbb8e9cef8da03a2e0ff2fbd9ef7af028f5de82a5b886946da\""
+        },
+        "bytes": 27951,
+        "sha256": "3476d0e501fc5bdbb8e9cef8da03a2e0ff2fbd9ef7af028f5de82a5b886946da",
+        "expected_bytes": 27951,
+        "expected_sha256": "3476d0e501fc5bdbb8e9cef8da03a2e0ff2fbd9ef7af028f5de82a5b886946da"
+      }
+    },
+    {
+      "bytes": 96000,
+      "frames": 24000,
+      "pcm_sha256": "b49d560b6015db975f10b0e69c54eeed707f5baddc09b957daad72347bd01955",
+      "flac_sha256": "ad56eef18d4776271383aa1180df062324b501d1618942abde55b25528dcecf7",
+      "http": {
+        "url": "http://127.0.0.1:43493/track-2.flac",
+        "status": 200,
+        "headers": {
+          "Server": "BaseHTTP/0.6 Python/3.14.7",
+          "Date": "Sun, 06 Sep 2026 18:33:01 GMT",
+          "Content-Type": "audio/flac",
+          "Content-Length": "30972",
+          "ETag": "\"ad56eef18d4776271383aa1180df062324b501d1618942abde55b25528dcecf7\""
+        },
+        "bytes": 30972,
+        "sha256": "ad56eef18d4776271383aa1180df062324b501d1618942abde55b25528dcecf7",
+        "expected_bytes": 30972,
+        "expected_sha256": "ad56eef18d4776271383aa1180df062324b501d1618942abde55b25528dcecf7"
+      }
+    }
+  ],
+  "wav_fifo": {
+    "bytes": 192000,
+    "frames": 48000,
+    "sha256": "24d01720643e20bd7f7e09cc52f5370a5aeb12c6536adba0198b1e7951144ff5",
+    "expected_bytes": 192000,
+    "expected_sha256": "24d01720643e20bd7f7e09cc52f5370a5aeb12c6536adba0198b1e7951144ff5"
+  },
+  "flac_fifo": {
+    "bytes": 192000,
+    "frames": 48000,
+    "sha256": "24d01720643e20bd7f7e09cc52f5370a5aeb12c6536adba0198b1e7951144ff5",
+    "expected_bytes": 192000,
+    "expected_sha256": "24d01720643e20bd7f7e09cc52f5370a5aeb12c6536adba0198b1e7951144ff5"
+  },
+  "http_flac_fifo": {
+    "bytes": 192000,
+    "frames": 48000,
+    "sha256": "24d01720643e20bd7f7e09cc52f5370a5aeb12c6536adba0198b1e7951144ff5",
+    "expected_bytes": 192000,
+    "expected_sha256": "24d01720643e20bd7f7e09cc52f5370a5aeb12c6536adba0198b1e7951144ff5"
+  }
+}

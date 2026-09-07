@@ -1,0 +1,32 @@
+{
+  "boundary": "127.0.0.1 only; no NAS, renderer, DAC, or analogue capture",
+  "decoded_pcm": {
+    "decoded_received_sha256": "5dd711a61f59c5e3d4eda0bdcaa30b77746d47397f37a6e694830df550211873",
+    "pass": true,
+    "source_sha256": "5dd711a61f59c5e3d4eda0bdcaa30b77746d47397f37a6e694830df550211873"
+  },
+  "file_transport": {
+    "pass": true,
+    "received_sha256": "2bf4a8e1027599d4693b1a690c1ee41d853880f81ea04b75b5911342839014f9",
+    "source_sha256": "2bf4a8e1027599d4693b1a690c1ee41d853880f81ea04b75b5911342839014f9"
+  },
+  "format": {
+    "channels": 2,
+    "rate_hz": 48000,
+    "sample_width_bits": 16
+  },
+  "timing_model": {
+    "deliberate_stall_ms": 200,
+    "period_ms": 10,
+    "prebuffer_ms": 40,
+    "smooth_loopback_payload_pass": true,
+    "smooth_modeled_underrun_periods": 0,
+    "stalled_loopback_payload_pass": true,
+    "stalled_modeled_underrun_periods": 23,
+    "warning": "arrival timestamps feed a consumer model; no audio device was opened"
+  },
+  "versions": {
+    "flac": "flac 1.5.0",
+    "python": "Python 3.14.7"
+  }
+}

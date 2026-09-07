@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "formula": "sample(frame,channel) = int16((frame*97 + channel*1009) % 65536 - 32768); track 2 starts at frame 24000",
+  "format": "WAV PCM stereo 48000 Hz signed 16-bit little-endian; interleaved left/right; 24000 frames per track",
+  "model": {
+    "sample_rate": 48000,
+    "frame_bytes": 4,
+    "period_frames": 480,
+    "prebuffer_frames": 960
+  },
+  "fixtures": [
+    {
+      "id": "track-1",
+      "wav": "fixtures/track-1.wav",
+      "pcm": "fixtures/track-1.pcm",
+      "bytes": 96044,
+      "sha256": "1848ce5cca0467d0a1d360d4b9d086f48b7c7c4c3ed16698f89cdb66306f72f0",
+      "pcm_sha256": "35c6b13f7b289b2152f452dad77f5f2ae4d56e068ac236cb5e4b44c850fdac23",
+      "etag": "\"1848ce5cca0467d0a1d360d4b9d086f48b7c7c4c3ed16698f89cdb66306f72f0\""
+    },
+    {
+      "id": "track-2",
+      "wav": "fixtures/track-2.wav",
+      "pcm": "fixtures/track-2.pcm",
+      "bytes": 96044,
+      "sha256": "f6462929e6c282b7ca1e96c68d5b557d50683f63bc40301d6809a4cebb012f0d",
+      "pcm_sha256": "b49d560b6015db975f10b0e69c54eeed707f5baddc09b957daad72347bd01955",
+      "etag": "\"f6462929e6c282b7ca1e96c68d5b557d50683f63bc40301d6809a4cebb012f0d\""
+    }
+  ]
+}

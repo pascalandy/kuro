@@ -1,16 +1,22 @@
 # Roadmap courante de kuro
 
-Cette roadmap ordonne les usages retenus après les deux entretiens. Elle ne reprend pas les milestones M1 à M7 du [corpus P1 à P5](archive/p1-p5/README.md). Les passages internes de U-M1 rendent le travail démontrable, mais seul U-M1 entier peut être accepté. KD-026, KD-032.
+Cette roadmap ordonne les usages retenus après les deux entretiens et le [changement de priorité sonore](kickoff/scope-addendum.md). Elle ne reprend pas les milestones M1 à M7 du [corpus P1 à P5](archive/p1-p5/README.md). L'étude d'architecture et de transport précède tous les résultats produit. Les passages internes de U-M1 rendent ensuite le travail démontrable, mais seul U-M1 entier peut être accepté. KD-026, KD-032, KD-041.
 
-## U-M1. Écoute locale fiable
+## Étudier le chemin sonore avant U-M1
+
+L'étude compare les transports entre le serveur kuro et un ordinateur de salon distinct. Elle trace le chemin jusqu'à la sortie USB, puis consigne les limites connues du DDC et du DAC Terminator. Elle produit une matrice des transports, les frontières de confiance, un essai synthétique relançable et un plan de test sur le matériel. KB-003, KB-012, KB-025. KD-041, KD-042.
+
+Le choix de la stack suit ces résultats. L'étude ne livre pas le produit et ne prouve pas la qualité sonore, le jitter physique, le gapless sur le matériel, ni l'acceptation de U-M1. Un résultat négatif demande un arbitrage. Il ne remplace pas le renderer demandé par une sortie directe du serveur. KD-038, KD-043.
+
+## U-M1. Écoute fiable sur un renderer distinct
 
 | Passage | Résultat observable | Passage suivant |
 | --- | --- | --- |
-| U-M1.A | Importer un dossier local et jouer un album sur la sortie partagée | Import, lecture de base et erreurs visibles fonctionnent sur un petit corpus |
+| U-M1.A | Importer un dossier local et jouer un album sur le renderer du salon | Import, transport, lecture de base et erreurs visibles fonctionnent sur un petit corpus |
 | U-M1.B | Retrouver la musique et préparer des playlists et une file | Recherche, vues, tri, navigation, playlists et file respectent le [cadrage](cadrage-courant.md) |
 | U-M1.C | Reprendre après redémarrage, utiliser le NAS et restaurer un snapshot | Persistance, NAS, sauvegarde et échec de restauration sont prouvés avant les mesures finales |
 
-L'acceptation finale vérifie les dix critères MVP ensemble, dont le corpus cible, le gapless retenu, l'usage sans Internet, les sources intactes et le paquet reproductible. Les scénarios [KV-001 à KV-013](validation.md) donnent les preuves attendues. KD-001, KD-026.
+L'acceptation finale vérifie les dix critères MVP ensemble, dont le corpus cible, le gapless retenu, l'usage sans Internet, les sources intactes et le paquet reproductible. Les scénarios [KV-001 à KV-013](validation.md) donnent les preuves attendues. Leur formulation audio dépend des décisions prises après l'étude préalable. KD-001, KD-026, KD-043.
 
 ## U-M2. Redécouverte locale
 

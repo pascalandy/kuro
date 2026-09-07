@@ -1,0 +1,54 @@
+name: kickoff validation
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kickoff-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository history
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Go 1.27.0
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version: '1.27.0'
+          cache: false
+
+      - name: Validate documentation
+        run: python3 scripts/verify_docs.py
+
+      - name: Check Go formatting
+        working-directory: experiments/transport
+        run: test -z "$(gofmt -l .)"
+
+      - name: Run Go vet
+        working-directory: experiments/transport
+        run: go vet ./...
+
+      - name: Run race tests
+        working-directory: experiments/transport
+        run: go test -race ./...
+
+      - name: Run transport proof
+        working-directory: experiments/transport
+        env:
+          PROOF_DIR: ${{ runner.temp }}/kuro-transport-proof-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          test ! -e "$PROOF_DIR"
+          go run ./cmd/kuro-transport-lab run --out "$PROOF_DIR"
+          go run ./cmd/kuro-transport-lab verify --out "$PROOF_DIR"
